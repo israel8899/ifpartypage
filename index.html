@@ -185,17 +185,132 @@
     </div>
 </div>
 
-<div id="join-section" class="section">
-    <h2>Join the Movement</h2>
-    <p>Be part of restoring Israeli sovereignty and building a stronger future.</p>
-    <input type="text" placeholder="Full Name" />
-    <input type="email" placeholder="Email Address" />
-    <button>Join Us</button>
-</div>
+<!-- Founding Member / Join Section -->
+<section id="founder-join" style="max-width:900px;margin:40px auto;padding:28px;background:#003b78;color:#fff;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.12);">
+  <h2 style="margin:0 0 10px;font-size:28px;">Join the Movement</h2>
+  <p style="margin:0 0 18px;font-size:16px;line-height:1.4;">
+    Interested in becoming a party founding member? <strong>Totally free — but must be an Israeli resident.</strong><br>
+    If you're not eligible to be a founding member, sign up to join the community instead.
+  </p>
 
-<div class="floating-join" onclick="document.getElementById('join-section').scrollIntoView({behavior:'smooth'});">
-    Join Us
-</div>
+  <form id="founderForm" style="display:flex;flex-direction:column;gap:12px;margin-top:12px;">
+    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+      <input name="name" placeholder="Full name" required
+             style="flex:1;min-width:220px;padding:12px;border-radius:8px;border:none;font-size:16px;" />
+      <input name="email" type="email" placeholder="Email address" required
+             style="flex:1;min-width:220px;padding:12px;border-radius:8px;border:none;font-size:16px;" />
+    </div>
+
+    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+      <input name="phone" type="tel" placeholder="Phone (optional)" 
+             style="flex:1;min-width:220px;padding:12px;border-radius:8px;border:none;font-size:16px;" />
+      <input name="country" id="countryInput" placeholder="Country of residence (e.g. Israel)" required
+             style="flex:1;min-width:220px;padding:12px;border-radius:8px;border:none;font-size:16px;" />
+    </div>
+
+    <div style="background:rgba(255,255,255,0.06);padding:12px;border-radius:8px;">
+      <label style="font-weight:700;margin-right:12px;">Interested in becoming a founding member?</label>
+      <label style="margin-right:10px;">
+        <input type="radio" name="founder" value="yes" required /> Yes
+      </label>
+      <label>
+        <input type="radio" name="founder" value="no" required /> No
+      </label>
+    </div>
+
+    <div id="formFeedback" aria-live="polite" style="min-height:20px;color:#ffdd57;font-weight:700;"></div>
+
+    <div style="display:flex;gap:12px;align-items:center;">
+      <button type="submit" style="background:#ffcc00;border:none;padding:12px 20px;border-radius:8px;font-weight:800;cursor:pointer;">
+        Submit
+      </button>
+      <button id="clearBtn" type="button" style="background:transparent;border:2px solid rgba(255,255,255,0.12);padding:10px 16px;border-radius:8px;color:#fff;cursor:pointer;">
+        Clear
+      </button>
+      <div id="spinner" style="display:none;margin-left:10px;color:#fff;">Sending…</div>
+    </div>
+
+    <p style="margin:10px 0 0;font-size:13px;opacity:0.9;">
+      By joining you consent to receive updates from Israel First. We will not sell your data.
+    </p>
+  </form>
+</section>
+
+<script>
+  (function () {
+    const form = document.getElementById('founderForm');
+    const countryInput = document.getElementById('countryInput');
+    const feedback = document.getElementById('formFeedback');
+    const spinner = document.getElementById('spinner');
+    const clearBtn = document.getElementById('clearBtn');
+
+    // Simple normalized check for Israeli residency
+    function isIsrael(text) {
+      if (!text) return false;
+      const t = text.trim().toLowerCase();
+      // accept common variations
+      return t === 'israel' || t === 'state of israel' || t === 'ישראל' || t.startsWith('israel');
+    }
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      feedback.textContent = '';
+      const formData = new FormData(form);
+      const name = formData.get('name')?.trim();
+      const email = formData.get('email')?.trim();
+      const phone = formData.get('phone')?.trim();
+      const country = formData.get('country')?.trim();
+      const founder = formData.get('founder'); // "yes" or "no"
+
+      if (!name || !email || !country || !founder) {
+        feedback.textContent = 'Please complete all required fields.';
+        return;
+      }
+
+      if (founder === 'yes' && !isIsrael(country)) {
+        feedback.textContent = 'To be a founding member you must be an Israeli resident. If you are not, select "No" and join the community.';
+        return;
+      }
+
+      // show spinner
+      spinner.style.display = 'inline';
+      try {
+        // Prepare payload
+        const payload = {
+          name, email, phone, country, founder, timestamp: new Date().toISOString()
+        };
+
+        // === Google Sheets Endpoint ===
+        await fetch('https://script.google.com/macros/s/AKfycbyBoIRKbzWvpodkTVqISznWoIqqITxz13_g8ECuD5tbV6c7jfmoCJ7BKH9-6pMIaqX3/exec', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        console.log('FORM SUBMIT (payload)', payload);
+
+        feedback.style.color = '#b8ff9b';
+        feedback.textContent = founder === 'yes'
+          ? 'Thank you — your interest in becoming a founding member is recorded. We will follow up if you are eligible.'
+          : 'Thanks — you are now signed up to join our community. Check your email for updates.';
+
+        form.reset();
+      } catch (err) {
+        console.error(err);
+        feedback.style.color = '#ffdd57';
+        feedback.textContent = 'There was an error submitting the form. Please try again.';
+      } finally {
+        spinner.style.display = 'none';
+      }
+    });
+
+    clearBtn.addEventListener('click', function () {
+      form.reset();
+      feedback.textContent = '';
+    });
+  })();
+</script>
+
 
 </body>
 </html>
