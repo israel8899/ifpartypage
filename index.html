@@ -328,5 +328,21 @@
 })();
 </script>
 
+<!-- Floating button -->
+  <a href="#founder-join" style="position:fixed; bottom:30px; right:30px; background:#ffcc00; color:#003b78; font-weight:800; padding:14px 20px; border-radius:50px; box-shadow:0 4px 12px rgba(0,0,0,0.2); text-decoration:none; z-index:1000; transition: transform 0.2s, box-shadow 0.2s;"
+     onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 16px rgba(0,0,0,0.25)';"
+     onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.2)';"
+  >
+     Join the Fight
+  </a>
+
+  <!-- Optional: script for smooth scrolling -->
+  <script>
+    document.querySelector('a[href="#founder-join"]').addEventListener('click', function(e){
+      e.preventDefault();
+      document.querySelector('#founder-join').scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
+
 </body>
 </html>
