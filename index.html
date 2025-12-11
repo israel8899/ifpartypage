@@ -185,7 +185,6 @@
     </div>
 </div>
 
-<!-- Founding Member / Join Section -->
 <section id="founder-join" style="max-width:900px;margin:40px auto;padding:28px;background:#003b78;color:#fff;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.12);">
   <h2 style="margin:0 0 10px;font-size:28px;">Join the Movement</h2>
   <p style="margin:0 0 18px;font-size:16px;line-height:1.4;">
@@ -193,20 +192,15 @@
     If you're not eligible to be a founding member, sign up to join the community instead.
   </p>
 
-  <!-- FORM POSTS DIRECTLY TO GOOGLE APPS SCRIPT -->
-  <form id="founderForm" method="POST" action="https://script.google.com/macros/s/AKfycbzjQJ3YKRR-uloayoNzhjP6FjhAIuQBJ8bZJ10gMZQFaUkeaOODGPwo6dkBJ8qzMwxM5A/exec" style="display:flex;flex-direction:column;gap:12px;margin-top:12px;">
+  <form id="founderForm" style="display:flex;flex-direction:column;gap:12px;margin-top:12px;">
     <div style="display:flex;gap:12px;flex-wrap:wrap;">
-      <input name="name" placeholder="Full name" required
-             style="flex:1;min-width:220px;padding:12px;border-radius:8px;border:none;font-size:16px;" />
-      <input name="email" type="email" placeholder="Email address" required
-             style="flex:1;min-width:220px;padding:12px;border-radius:8px;border:none;font-size:16px;" />
+      <input name="name" placeholder="Full name" required style="flex:1;min-width:220px;padding:12px;border-radius:8px;border:none;font-size:16px;" />
+      <input name="email" type="email" placeholder="Email address" required style="flex:1;min-width:220px;padding:12px;border-radius:8px;border:none;font-size:16px;" />
     </div>
 
     <div style="display:flex;gap:12px;flex-wrap:wrap;">
-      <input name="phone" type="tel" placeholder="Phone (optional)" 
-             style="flex:1;min-width:220px;padding:12px;border-radius:8px;border:none;font-size:16px;" />
-      <input name="country" id="countryInput" placeholder="Country of residence (e.g. Israel)" required
-             style="flex:1;min-width:220px;padding:12px;border-radius:8px;border:none;font-size:16px;" />
+      <input name="phone" type="tel" placeholder="Phone (optional)" style="flex:1;min-width:220px;padding:12px;border-radius:8px;border:none;font-size:16px;" />
+      <input name="country" id="countryInput" placeholder="Country of residence (e.g. Israel)" required style="flex:1;min-width:220px;padding:12px;border-radius:8px;border:none;font-size:16px;" />
     </div>
 
     <div style="background:rgba(255,255,255,0.06);padding:12px;border-radius:8px;">
@@ -219,31 +213,89 @@
       </label>
     </div>
 
+    <div id="formFeedback" aria-live="polite" style="min-height:20px;color:#ffdd57;font-weight:700;"></div>
+
     <div style="display:flex;gap:12px;align-items:center;">
-      <button type="submit" style="background:#ffcc00;border:none;padding:12px 20px;border-radius:8px;font-weight:800;cursor:pointer;">
-        Submit
-      </button>
-      <button type="reset" style="background:transparent;border:2px solid rgba(255,255,255,0.12);padding:10px 16px;border-radius:8px;color:#fff;cursor:pointer;">
-        Clear
-      </button>
+      <button type="submit" style="background:#ffcc00;border:none;padding:12px 20px;border-radius:8px;font-weight:800;cursor:pointer;">Submit</button>
+      <button id="clearBtn" type="button" style="background:transparent;border:2px solid rgba(255,255,255,0.12);padding:10px 16px;border-radius:8px;color:#fff;cursor:pointer;">Clear</button>
+      <div id="spinner" style="display:none;margin-left:10px;color:#fff;">Sending…</div>
     </div>
 
-    <p style="margin:10px 0 0;font-size:13px;opacity:0.9;">
-      By joining you consent to receive updates from Israel First. We will not sell your data.
-    </p>
+    <p style="margin:10px 0 0;font-size:13px;opacity:0.9;">By joining you consent to receive updates from Israel First. We will not sell your data.</p>
   </form>
 </section>
 
 <script>
-  // Optional client-side check for Israeli residency
-  document.getElementById('founderForm').addEventListener('submit', function(e){
-    const country = document.getElementById('countryInput').value.trim().toLowerCase();
-    const founderYes = document.querySelector('input[name="founder"]:checked').value === 'yes';
-    if(founderYes && !(country === 'israel' || country === 'state of israel' || country === 'ישראל' || country.startsWith('israel'))) {
-      e.preventDefault();
-      alert('To be a founding member you must be an Israeli resident. If you are not, select "No" and join the community.');
+(function () {
+  const form = document.getElementById('founderForm');
+  const countryInput = document.getElementById('countryInput');
+  const feedback = document.getElementById('formFeedback');
+  const spinner = document.getElementById('spinner');
+  const clearBtn = document.getElementById('clearBtn');
+
+  function isIsrael(text) {
+    if (!text) return false;
+    const t = text.trim().toLowerCase();
+    return t === 'israel' || t === 'state of israel' || t === 'ישראל' || t.startsWith('israel');
+  }
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    feedback.textContent = '';
+    const formData = new FormData(form);
+    const name = formData.get('name')?.trim();
+    const email = formData.get('email')?.trim();
+    const phone = formData.get('phone')?.trim();
+    const country = formData.get('country')?.trim();
+    const founder = formData.get('founder');
+
+    if (!name || !email || !country || !founder) {
+      feedback.textContent = 'Please complete all required fields.';
+      return;
+    }
+
+    if (founder === 'yes' && !isIsrael(country)) {
+      feedback.textContent = 'To be a founding member you must be an Israeli resident. If you are not, select "No" and join the community.';
+      return;
+    }
+
+    spinner.style.display = 'inline';
+    try {
+      const payload = { name, email, phone, country, founder };
+
+      const res = await fetch("YOUR_WEB_APP_URL", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+
+      const json = await res.json();
+
+      if (json.success) {
+        feedback.style.color = "#b8ff9b";
+        feedback.textContent = founder === 'yes'
+          ? 'Thank you — your interest in becoming a founding member is recorded. We will follow up if you are eligible.'
+          : 'Thanks — you are now signed up to join our community. Check your email for updates.';
+        form.reset();
+      } else {
+        feedback.style.color = "#ffdd57";
+        feedback.textContent = 'Error: ' + (json.error || 'Please try again.');
+      }
+
+    } catch (err) {
+      feedback.style.color = "#ffdd57";
+      feedback.textContent = 'There was an error submitting the form. Please try again.';
+      console.error(err);
+    } finally {
+      spinner.style.display = 'none';
     }
   });
+
+  clearBtn.addEventListener('click', function () {
+    form.reset();
+    feedback.textContent = '';
+  });
+})();
 </script>
 
 </body>
