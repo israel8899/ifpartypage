@@ -244,11 +244,9 @@
     const spinner = document.getElementById('spinner');
     const clearBtn = document.getElementById('clearBtn');
 
-    // Simple normalized check for Israeli residency
     function isIsrael(text) {
       if (!text) return false;
       const t = text.trim().toLowerCase();
-      // accept common variations
       return t === 'israel' || t === 'state of israel' || t === 'ישראל' || t.startsWith('israel');
     }
 
@@ -260,7 +258,7 @@
       const email = formData.get('email')?.trim();
       const phone = formData.get('phone')?.trim();
       const country = formData.get('country')?.trim();
-      const founder = formData.get('founder'); // "yes" or "no"
+      const founder = formData.get('founder');
 
       if (!name || !email || !country || !founder) {
         feedback.textContent = 'Please complete all required fields.';
@@ -272,20 +270,23 @@
         return;
       }
 
-      // show spinner
       spinner.style.display = 'inline';
       try {
-        // Prepare payload
-        const payload = {
-          name, email, phone, country, founder, timestamp: new Date().toISOString()
-        };
+        const payload = { name, email, phone, country, founder, timestamp: new Date().toISOString() };
 
         // === Google Sheets Endpoint ===
-        await fetch('https://script.google.com/macros/s/AKfycbzX2w-so2vLJXN6M4hsLqFqAcJ_AvAMrwSqXxvZatnLryGJn7J8DNyHugOIB0fR2Y3y/exec', {
+        const response = await fetch('https://script.google.com/macros/s/AKfycbzX2w-so2vLJXN6M4hsLqFqAcJ_AvAMrwSqXxvZatnLryGJn7J8DNyHugOIB0fR2Y3y
+/exec', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
         });
+
+        if (!response.ok) {
+          const text = await response.text();
+          console.error('Server error response:', text);
+          throw new Error('Server responded with error');
+        }
 
         console.log('FORM SUBMIT (payload)', payload);
 
@@ -310,7 +311,6 @@
     });
   })();
 </script>
-
 
 </body>
 </html>
