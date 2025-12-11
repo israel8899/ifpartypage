@@ -221,7 +221,9 @@
       <div id="spinner" style="display:none;margin-left:10px;color:#fff;">Sending…</div>
     </div>
 
-    <p style="margin:10px 0 0;font-size:13px;opacity:0.9;">By joining you consent to receive updates from Israel First. We will not sell your data.</p>
+    <p style="margin:10px 0 0;font-size:13px;opacity:0.9;">
+      By joining you consent to receive updates from Israel First. We will not sell your data.
+    </p>
   </form>
 </section>
 
@@ -236,18 +238,26 @@
   function isIsrael(text) {
     if (!text) return false;
     const t = text.trim().toLowerCase();
-    return t === 'israel' || t === 'state of israel' || t === 'ישראל' || t.startsWith('israel');
+    return (
+      t === 'israel' ||
+      t === 'state of israel' ||
+      t === 'ישראל' ||
+      t.startsWith('israel')
+    );
   }
 
   form.addEventListener('submit', async function (e) {
     e.preventDefault();
+    feedback.style.color = "#ffdd57";
     feedback.textContent = '';
-    const formData = new FormData(form);
-    const name = formData.get('name')?.trim();
-    const email = formData.get('email')?.trim();
-    const phone = formData.get('phone')?.trim();
-    const country = formData.get('country')?.trim();
-    const founder = formData.get('founder');
+
+    const fd = new FormData(form);
+
+    const name = fd.get('name')?.trim();
+    const email = fd.get('email')?.trim();
+    const phone = fd.get('phone')?.trim();
+    const country = fd.get('country')?.trim();
+    const founder = fd.get('founder');
 
     if (!name || !email || !country || !founder) {
       feedback.textContent = 'Please complete all required fields.';
@@ -255,36 +265,46 @@
     }
 
     if (founder === 'yes' && !isIsrael(country)) {
-      feedback.textContent = 'To be a founding member you must be an Israeli resident. If you are not, select "No" and join the community.';
+      feedback.textContent =
+        'To be a founding member you must be an Israeli resident. If not, select "No".';
       return;
     }
 
     spinner.style.display = 'inline';
-    try {
-      const payload = { name, email, phone, country, founder };
 
-      const res = await fetch("https://script.google.com/macros/s/AKfycbxP9hcZuaWpbMnpmKAsCP49Bvsf8PVyUPN4a8MCb7l1CWFN-vmGpxMR1LoIBFwRyCkgFw/exec", {
+    try {
+      // Build URL-encoded body (the same format as your successful test.html)
+      const encoded = new URLSearchParams();
+      encoded.append('name', name);
+      encoded.append('email', email);
+      encoded.append('phone', phone);
+      encoded.append('country', country);
+      encoded.append('founder', founder);
+
+      const res = await fetch("YOUR_WEB_APP_URL_HERE", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
+        body: encoded
       });
 
       const json = await res.json();
 
       if (json.success) {
         feedback.style.color = "#b8ff9b";
-        feedback.textContent = founder === 'yes'
-          ? 'Thank you — your interest in becoming a founding member is recorded. We will follow up if you are eligible.'
-          : 'Thanks — you are now signed up to join our community. Check your email for updates.';
+        feedback.textContent =
+          founder === 'yes'
+            ? 'Thank you — your interest in being a founding member has been recorded.'
+            : 'Thanks — you are now signed up to join our community.';
         form.reset();
       } else {
         feedback.style.color = "#ffdd57";
-        feedback.textContent = 'Error: ' + (json.error || 'Please try again.');
+        feedback.textContent =
+          'Error: ' + (json.error || 'Please try again.');
       }
 
     } catch (err) {
       feedback.style.color = "#ffdd57";
-      feedback.textContent = 'There was an error submitting the form. Please try again.';
+      feedback.textContent =
+        'There was an error submitting the form.';
       console.error(err);
     } finally {
       spinner.style.display = 'none';
