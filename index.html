@@ -263,7 +263,7 @@
     try {
       const payload = { name, email, phone, country, founder };
 
-      const res = await fetch("YOUR_WEB_APP_URL", {
+      const res = await fetch("https://script.google.com/macros/s/AKfycbzjQJ3YKRR-uloayoNzhjP6FjhAIuQBJ9bZJ10gMZQFaUkeaOODGPwo6dkBJ8qzMwxM5A/exec", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)
