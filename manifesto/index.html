@@ -5,44 +5,112 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Israel First Party Manifesto</title>
 <style>
-  body { font-family: Arial, sans-serif; background-color: #f9f9f9; color: #222; margin: 0; padding: 0; line-height: 1.6; }
-  header { background-color: #004080; color: white; padding: 40px 20px; text-align: center; }
-  header h1 { margin: 0; font-size: 2.5em; }
-  header p { font-size: 1.2em; margin-top: 10px; }
-  main { max-width: 900px; margin: 40px auto; padding: 20px; background-color: white; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-  section { margin-bottom: 40px; }
-  section h2 { color: #004080; margin-bottom: 15px; }
-  section p { margin-bottom: 15px; }
-  footer { text-align: center; padding: 20px; background-color: #004080; color: white; margin-top: 40px; }
-  strong { color: #004080; }
+:root{
+  --ink:#0b0b0b;
+  --paper:#f7f7f5;
+  --accent:#1e6fff;
+  --gold:#c7a14a;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;}
+
+/* HERO */
+header.hero{
+  position:relative;
+  min-height:100vh;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  background:
+    radial-gradient(1200px 600px at 10% 10%, rgba(30,111,255,.18), transparent 40%),
+    radial-gradient(900px 500px at 90% 20%, rgba(199,161,74,.18), transparent 45%),
+    linear-gradient(180deg, #0a0f1f 0%, #0c1328 55%, #0b0b0b 100%);
+  padding-bottom:6rem;
+}
+header.hero .overlay{
+  position:absolute;inset:0;
+  background:
+    repeating-linear-gradient(0deg, rgba(255,255,255,.04) 0 1px, transparent 1px 3px);
+  mix-blend-mode:overlay;opacity:.25;pointer-events:none;
+}
+header.hero::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg, transparent 70%, rgba(0,0,0,.65) 100%);
+}
+.hero-content{
+  position:relative;z-index:1;
+  max-width:980px;
+  padding:6rem 2rem 7rem;
+  text-align:center;
+}
+.hero-content h1{
+  margin:0 0 1rem;
+  font-size:clamp(3rem,6vw,5.5rem);
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:#fff;
+}
+.hero-content .divider{
+  width:140px;height:2px;margin:1.5rem auto;
+  background:linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.hero-content .hero-subtitle{
+  margin:0;
+  font-size:clamp(1.25rem,2.2vw,1.75rem);
+  color:#ffffff;
+  letter-spacing:.04em;
+  text-transform:none;
+}
+
+/* BODY */
+main{max-width:920px;margin:6rem auto 6rem;padding:0 1.25rem;}
+section{margin:3.5rem 0;}
+section h2{
+  font-size:1.6rem;letter-spacing:.06em;text-transform:uppercase;
+  margin:0 0 1rem;
+}
+section h2::after{
+  content:"";display:block;width:60px;height:2px;margin-top:.5rem;
+  background:linear-gradient(90deg, var(--accent), transparent);
+}
+section p{line-height:1.65;font-size:1.02rem;}
+strong{font-weight:650}
+footer{background:linear-gradient(135deg,#0e1633,#0b0b0b);color:#fff;text-align:center;padding:28px 16px;margin-top:48px}
 </style>
 </head>
 <body>
 
-<header>
-  <h1>Israel First</h1>
-  <p>A Manifesto for a State That Serves Its Citizens</p>
+<header class="hero">
+  <div class="overlay"></div>
+  <div class="hero-content">
+    <h1>ISRAEL FIRST</h1>
+    <div class="divider"></div>
+    <p class="hero-subtitle">A vision for a country that puts its citizens first</p>
+  </div>
 </header>
 
 <main>
 
 <section>
   <h2>This Is the Moment</h2>
-  <p>Israel is strong—but Israeli citizens are being ignored.</p>
-  <p>Salaries lag behind costs. Jobs are scarce. Home ownership is a dream of the past. Policy too often serves systems, intermediaries, and powerful interests instead of the people who carry the country on their backs.</p>
+  <p>Israel is strong—but Israeli citizens are being stretched thin.</p>
+  <p>Salaries lag behind costs. Housing is slipping out of reach. Essential work is undervalued. Policy too often serves systems, intermediaries, and powerful interests instead of the people who carry the country on their backs.</p>
   <p>We feed our enemies because of international demands.<br>
-    We halt annexation and destroy Jewish settlement because of American demands.<br>
-    We suppress wages because of corporate demands.<br></p>
-  <p>Time to put Israel First.</p>
+  We halt annexation and destroy Jewish settlement because of American demands.<br>
+  We suppress wages because of corporate demands.<br>
+  Time to put Israel First.</p>
+  <p>Israel First exists to reverse that equation.</p>
+  <p>This movement is built on a clear conviction: a nation that does not put its citizens first will eventually fail them all.</p>
 </section>
 
 <section>
   <h2>What “Israel First” Means</h2>
   <p>Israel First is not isolationism. It is responsibility.</p>
   <p>It means:</p>
-  <p>National Interests come before Foreign Interests</p>
-  <p>Citizens come before Corporations</p>
-  <p>Sovereignty comes before Dependence.</p>
+  <p>Citizens come before systems.</p>
+  <p>Work comes before exploitation.</p>
+  <p>Sovereignty comes before dependence.</p>
+  <p>The national interest comes before political convenience.</p>
   <p>A strong Israel begins at home—with people who can live, work, and build a future with dignity.</p>
 </section>
 
