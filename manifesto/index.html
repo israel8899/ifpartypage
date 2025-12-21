@@ -29,82 +29,77 @@ a:hover{text-decoration:underline;}
 </header>
 
 <style>
-header.hero{
-  position:relative;
-  min-height:90vh;
-  display:grid;
-  place-items:center;
-  overflow:hidden;
-  
-  /* Flag background with subtle dark overlay */
-  background:
-    linear-gradient(
-      rgba(10,15,31,0.55),
-      rgba(10,15,31,0.75)
-    ),
-    url("./israel-flag-waving.png") center/cover no-repeat;
+header.hero {
+  position: relative;
+  min-height: 90vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
 
-  padding-bottom:6rem;
+  /* Separate background layers for clarity */
+  background-color: #0a0f1f; /* fallback */
+  background-image: 
+    linear-gradient(rgba(10,15,31,0.55), rgba(10,15,31,0.75)),
+    url("./israel-flag-waving.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  padding-bottom: 6rem;
 }
 
-header.hero .overlay{
-  position:absolute;
-  inset:0;
-  background:
-    repeating-linear-gradient(
-      0deg,
-      rgba(255,255,255,.02) 0 1px,
-      transparent 1px 4px
-    );
-  mix-blend-mode:overlay;
-  opacity:.15;
-  pointer-events:none;
-}
-
-header.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(
-    180deg,
-    transparent 65%,
-    rgba(0,0,0,.5) 100%
+header.hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255,255,255,.02) 0 1px,
+    transparent 1px 4px
   );
+  mix-blend-mode: overlay;
+  opacity: .15;
+  pointer-events: none;
 }
 
-.hero-content{
-  position:relative;
-  z-index:1;
-  max-width:980px;
-  padding:6rem 2rem 7rem;
-  text-align:center;
+header.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 65%, rgba(0,0,0,.5) 100%);
 }
 
-.hero-content h1{
-  margin:0 0 1rem;
-  font-size:clamp(3rem,6vw,5.5rem);
-  letter-spacing:.06em;
-  text-transform:uppercase;
-  color:#fff;
-  font-family:'Inter', sans-serif;
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 980px;
+  padding: 6rem 2rem 7rem;
+  text-align: center;
 }
 
-.hero-content .divider{
-  width:140px;
-  height:2px;
-  margin:1.5rem auto;
-  background:linear-gradient(90deg, transparent, #c7a14a, transparent);
+.hero-content h1 {
+  margin: 0 0 1rem;
+  font-size: clamp(3rem,6vw,5.5rem);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
 }
 
-.hero-content .hero-subtitle{
-  margin:0;
-  font-size:clamp(1.25rem,2.2vw,1.75rem);
-  color:#ffffff;
-  letter-spacing:.04em;
-  text-transform:none;
+.hero-content .divider {
+  width: 140px;
+  height: 2px;
+  margin: 1.5rem auto;
+  background: linear-gradient(90deg, transparent, #c7a14a, transparent);
+}
+
+.hero-content .hero-subtitle {
+  margin: 0;
+  font-size: clamp(1.25rem,2.2vw,1.75rem);
+  color: #fff;
+  letter-spacing: .04em;
+  text-transform: none;
 }
 </style>
-
 
 /* BODY */
 main{max-width:960px;margin:6rem auto 6rem;padding:0 1.5rem;}
