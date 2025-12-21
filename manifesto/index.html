@@ -3,34 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Israel First Party Manifesto - Version C</title>
+<title>Israel First Party Manifesto</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 :root{
   --ink:#0b0b0b;
   --paper:#f7f7f5;
   --accent:#1e6fff;
   --gold:#c7a14a;
+  --highlight:#fff4c7;
 }
 *{box-sizing:border-box}
-html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;line-height:1.65;}
+html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Merriweather', serif;font-size:1rem;line-height:1.75;}
 
 /* HERO */
 header.hero{
   position:relative;
-  min-height:80vh;
+  min-height:90vh;
   display:grid;
   place-items:center;
   overflow:hidden;
   background:
-    radial-gradient(1200px 600px at 10% 10%, rgba(30,111,255,.18), transparent 40%),
-    radial-gradient(900px 500px at 90% 20%, rgba(199,161,74,.18), transparent 45%),
+    radial-gradient(1200px 600px at 10% 10%, rgba(30,111,255,.15), transparent 40%),
+    radial-gradient(900px 500px at 90% 20%, rgba(199,161,74,.15), transparent 45%),
     linear-gradient(180deg, #0a0f1f 0%, #0c1328 55%, #0b0b0b 100%);
   padding-bottom:6rem;
 }
 header.hero .overlay{
   position:absolute;inset:0;
   background:
-    repeating-linear-gradient(0deg, rgba(255,255,255,.04) 0 1px, transparent 1px 3px);
+    repeating-linear-gradient(0deg, rgba(255,255,255,.03) 0 1px, transparent 1px 3px);
   mix-blend-mode:overlay;opacity:.25;pointer-events:none;
 }
 header.hero::after{
@@ -46,9 +48,10 @@ header.hero::after{
 .hero-content h1{
   margin:0 0 1rem;
   font-size:clamp(3rem,6vw,5.5rem);
-  letter-spacing:.04em;
+  letter-spacing:.06em;
   text-transform:uppercase;
   color:#fff;
+  font-family:'Inter', sans-serif;
 }
 .hero-content .divider{
   width:140px;height:2px;margin:1.5rem auto;
@@ -63,19 +66,27 @@ header.hero::after{
 }
 
 /* BODY */
-main{max-width:960px;margin:6rem auto 6rem;padding:0 1.25rem;}
-section{margin:4rem 0;}
+main{max-width:960px;margin:6rem auto 6rem;padding:0 1.5rem;}
+section{margin:4rem 0;padding:2rem;background:#fff;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.08);}
+section:nth-child(even){background:#fefcf7;}
 section h2{
-  font-size:1.7rem;letter-spacing:.06em;text-transform:uppercase;
+  font-size:1.8rem;
+  letter-spacing:.06em;
+  text-transform:uppercase;
   margin:0 0 1rem;
+  font-weight:700;
+  color:var(--ink);
+  position:relative;
 }
 section h2::after{
-  content:"";display:block;width:60px;height:2px;margin-top:.5rem;
+  content:"";display:block;width:80px;height:3px;margin-top:.5rem;
   background:linear-gradient(90deg, var(--accent), transparent);
 }
-section p{margin-bottom:1.2rem;font-size:1.05rem;}
-strong{font-weight:650}
-footer{background:linear-gradient(135deg,#0e1633,#0b0b0b);color:#fff;text-align:center;padding:28px 16px;margin-top:48px}
+section p{line-height:1.8;font-size:1.05rem;margin-bottom:1.25rem;}
+p.highlight{background:var(--highlight);padding:.75rem 1rem;border-left:4px solid var(--gold);border-radius:4px;}
+strong{font-weight:700;}
+ul{margin-left:1.5rem;margin-bottom:1.25rem;}
+footer{background:linear-gradient(135deg,#0e1633,#0b0b0b);color:#fff;text-align:center;padding:28px 16px;margin-top:48px;font-family:'Inter', sans-serif;}
 </style>
 </head>
 <body>
@@ -96,9 +107,9 @@ footer{background:linear-gradient(135deg,#0e1633,#0b0b0b);color:#fff;text-align:
   <p>Israel was not built to become a country where its citizens struggle to live in it.</p>
   <p>Yet today, the Zionist promise is slipping away for millions of Israelis. Housing has become unaffordable. Wages are suppressed. The job market is distorted by mass foreign labor. And national decisions are increasingly shaped by foreign pressure rather than the will of the Israeli public.</p>
   <p>This is not a coincidence. It is the result of choices.</p>
-  <p>We feed our enemies because of international demands.<br>
-     We halt annexation and dismantle Jewish settlement because of American demands.<br>
-     We suppress wages and flood the labor market because of corporate demands.</p>
+  <p class="highlight">We feed our enemies because of international demands.<br>
+  We halt annexation and dismantle Jewish settlement because of American demands.<br>
+  We suppress wages and flood the labor market because of corporate demands.</p>
   <p>Meanwhile, an out-of-touch ruling class is more concerned with approval from Washington, Brussels, and global elites than with whether young Israeli families can afford a home, build wealth, or remain in the country at all.</p>
   <p>Zionism was never meant to produce a nation of permanent renters, disposable workers, and strategic dependents.</p>
   <p>Israel First exists to revive the Zionist dream—by restoring ownership, opportunity, sovereignty, and permanence to Israeli life.</p>
@@ -109,7 +120,8 @@ footer{background:linear-gradient(135deg,#0e1633,#0b0b0b);color:#fff;text-align:
   <p>Israel was built by workers—not by intermediaries, rent-seekers, or imported labor schemes.</p>
   <p>A Zionist economy is one that produces, builds, and employs its own people. When a nation hollows out its working class, it hollows out its resilience.</p>
   <p>Over the past decades, mass waves of foreign labor—especially in construction—have displaced Israeli workers, suppressed wages, and stripped entire sectors of long-term Israeli participation.</p>
-  <p>This was not modernization. It was replacement. Israel First rejects this model and proposes a clear course correction.</p>
+  <p>This was not modernization. It was replacement.</p>
+  <p>Israel First rejects this model and proposes a clear course correction.</p>
   <p>Israel First will:</p>
   <ul>
     <li>Severely minimize foreign labor in core industries, particularly construction</li>
@@ -119,26 +131,30 @@ footer{background:linear-gradient(135deg,#0e1633,#0b0b0b);color:#fff;text-align:
     <li>Restore construction, manufacturing, and logistics as respected, well-paid Israeli professions</li>
   </ul>
   <p>Israel First will also prioritize domestic manufacturing in key industries—defense, construction materials, energy, and strategic supply chains—both to create stable Israeli jobs and to shield the country from politically motivated sanctions, embargoes, and economic coercion.</p>
-  <p>This is not protectionism. It is national insurance. A nation that builds its own homes, infrastructure, and weapons cannot be threatened into submission. Rebuilding the Israeli working class is not nostalgia—it is preparation for a world where sovereignty must be defended economically as well as militarily.</p>
+  <p>This is not protectionism. It is national insurance.</p>
+  <p>A nation that builds its own homes, infrastructure, and weapons cannot be threatened into submission. Rebuilding the Israeli working class is not nostalgia—it is preparation for a world where sovereignty must be defended economically as well as militarily.</p>
 </section>
 
 <section>
   <h2>Annexation: The Solution to the Housing Crisis</h2>
   <p>Israel is not suffering from a housing shortage. Israel is suffering from a sovereignty shortage.</p>
   <p>Homeownership is the most reliable path to generational wealth. It is how families build stability, security, and a permanent stake in the future. When citizens are locked out of ownership, they are forced into permanent rent, permanent dependency, and permanent insecurity.</p>
-  <p>That is the reality facing a growing share of Israelis today. Housing prices have risen dramatically over the past two decades. Homeownership among young Israelis has collapsed. Rent consumes an ever-larger share of income, leaving families unable to save, invest, or build wealth. This is not just an economic failure—it is a Zionist one.</p>
+  <p>That is the reality facing a growing share of Israelis today.</p>
+  <p>Housing prices have risen dramatically over the past two decades. Homeownership among young Israelis has collapsed. Rent consumes an ever-larger share of income, leaving families unable to save, invest, or build wealth. This is not just an economic failure—it is a Zionist one.</p>
   <p>A nation cannot survive when its citizens cannot afford to stay in it.</p>
   <p>The core problem is not demand. The core problem is artificial scarcity.</p>
   <p>Israel is not out of land. Vast areas of Area C, already under full Israeli control, remain politically frozen. This deliberate paralysis constricts housing supply nationwide, drives prices upward, and benefits speculators while suffocating the middle class.</p>
   <p>Israel First is clear: annexation is the solution.</p>
   <p>Formal annexation of Area C allows for permanent Israeli communities, infrastructure, and housing at scale. Unlike temporary development—which can be dismantled under foreign pressure—annexation creates certainty, permanence, and confidence for families and investors alike.</p>
   <p>Expanding housing supply through annexation would relieve pressure across the entire country, not just beyond the Green Line. Conservative estimates indicate that sustained expansion could drive national housing prices down by 15–30 percent over time, restoring access to ownership for hundreds of thousands of Israeli families.</p>
-  <p>This is not ideology. It is basic economics—and basic Zionism. Zionism is not a slogan. It is a home you own, on land that is yours—under a state that will not retreat.</p>
+  <p>This is not ideology. It is basic economics—and basic Zionism.</p>
+  <p>Zionism is not a slogan. It is a home you own, on land that is yours—under a state that will not retreat.</p>
 </section>
 
 <section>
   <h2>Sovereignty Through Strategic Balance</h2>
-  <p>Israel is a sovereign state—not a vassal. Israel’s greatest strategic mistake has been believing it has no options. That no country besides the United States would value partnership with us. This illusion has allowed others to leverage Israel economically, diplomatically, and militarily—without consequence.</p>
+  <p>Israel is a sovereign state—not a vassal.</p>
+  <p>Israel’s greatest strategic mistake has been believing it has no options. That no country besides the United States would value partnership with us. This illusion has allowed others to leverage Israel economically, diplomatically, and militarily—without consequence.</p>
   <p>Israel has not failed. Israel has been exploited.</p>
   <p>Israel First will maintain cooperation with the United States where interests align—but will reject any arrangement that trades sovereignty for approval. Israel will pursue a balanced geopolitical strategy, expanding partnerships across regions and powers so that no single nation holds leverage over Israel’s security, economy, or future.</p>
   <p>The Israeli public is the sovereign. Not foreign governments. Not foreign interests.</p>
@@ -146,23 +162,37 @@ footer{background:linear-gradient(135deg,#0e1633,#0b0b0b);color:#fff;text-align:
 
 <section>
   <h2>Military Independence and the End of Strategic Humiliation</h2>
-  <p>Ceasefires. Negotiations. Prisoner releases. Humanitarian aid to enemies.</p>
-  <p>Despite possessing the strongest military in the region, Israel has allowed foreign nations to negotiate the terms of wars we have already won. This is not restraint. It is managed defeat.</p>
+  <p>Ceasefires.<br>
+  Negotiations.<br>
+  Prisoner releases.<br>
+  Humanitarian aid to enemies.</p>
+  <p>Despite possessing the strongest military in the region, Israel has allowed foreign nations to negotiate the terms of wars we have already won.</p>
+  <p>This is not restraint. It is managed defeat.</p>
   <p>The breaking point came when Israel was pressured to finance the rebuilding of Gaza after the deadliest massacre of Jews since the Holocaust. No serious nation accepts such extortion.</p>
-  <p>True sovereignty requires military independence. Israel must be capable of producing all weapons, munitions, and systems required to fight and win its wars—without permission.</p>
-  <p>In the 1980s, Israel was developing the Lavi fighter jet—one of the most advanced aircraft of its time. The program was cancelled not due to failure, but under American pressure, fearing it would surpass U.S. aircraft. That was a mistake.</p>
-  <p>Israel has the world’s best combat pilots and one of the most advanced defense industries on earth. It is time to restart sovereign weapons development—so Israeli pilots fly the greatest fighter jets imaginable, built for Israeli needs, under Israeli control. Never again will Israel win wars only to surrender sovereignty afterward.</p>
+  <p>True sovereignty requires military independence.</p>
+  <p>Israel must be capable of producing all weapons, munitions, and systems required to fight and win its wars—without permission.</p>
+  <p>In the 1980s, Israel was developing the Lavi fighter jet—one of the most advanced aircraft of its time. The program was cancelled not due to failure, but under American pressure, fearing it would surpass U.S. aircraft.</p>
+  <p>That was a mistake.</p>
+  <p>Israel has the world’s best combat pilots and one of the most advanced defense industries on earth. It is time to restart sovereign weapons development—so Israeli pilots fly the greatest fighter jets imaginable, built for Israeli needs, under Israeli control.</p>
+  <p>Never again will Israel win wars only to surrender sovereignty afterward.</p>
 </section>
 
 <section>
   <h2>National Cohesion</h2>
-  <p>Israel has been divided deliberately. Secular versus religious. Ashkenazi versus Sephardi. Tel Aviv versus Judea and Samaria. These divisions serve politicians—not the nation.</p>
-  <p>Israel needs its hi-tech innovators and its settlers. Its Torah scholars and its secular leaders. These are not competing identities. They are complementary strengths. We have enough enemies. There is no sense in fighting each other. National cohesion does not mean uniformity. It means shared destiny.</p>
+  <p>Israel has been divided deliberately.</p>
+  <p>Secular versus religious.<br>
+  Ashkenazi versus Sephardi.<br>
+  Tel Aviv versus Judea and Samaria.</p>
+  <p>These divisions serve politicians—not the nation.</p>
+  <p>Israel needs its hi-tech innovators and its settlers. Its Torah scholars and its secular leaders. These are not competing identities. They are complementary strengths.</p>
+  <p>We have enough enemies. There is no sense in fighting each other.</p>
+  <p>National cohesion does not mean uniformity. It means shared destiny.</p>
 </section>
 
 <section>
   <h2>A Call to Citizens</h2>
-  <p>Israel First is not left or right. It is forward. It is about restoring ownership, opportunity, sovereignty, and permanence to Israeli life. When Israelis can afford homes, earn dignified wages, defend themselves without permission, and live without foreign coercion, Zionism is not just remembered—it is renewed.</p>
+  <p>Israel First is not left or right. It is forward.</p>
+  <p>It is about restoring ownership, opportunity, sovereignty, and permanence to Israeli life. When Israelis can afford homes, earn dignified wages, defend themselves without permission, and live without foreign coercion, Zionism is not just remembered—it is renewed.</p>
   <p>This is Israel First.</p>
 </section>
 
