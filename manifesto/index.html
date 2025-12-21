@@ -20,7 +20,6 @@ a:hover{text-decoration:underline;}
 
 /* HERO */
 <header class="hero">
-  <div class="overlay"></div>
   <div class="hero-content">
     <h1>ISRAEL FIRST</h1>
     <div class="divider"></div>
@@ -36,44 +35,29 @@ header.hero {
   place-items: center;
   overflow: hidden;
 
-  /* Separate background layers for clarity */
-  background-color: #0a0f1f; /* fallback */
-  background-image: 
-    linear-gradient(rgba(10,15,31,0.55), rgba(10,15,31,0.75)),
-    url("./israel-flag-waving.png");
+  /* Image as background */
+  background-image: url("./israel-flag-waving.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-
-  padding-bottom: 6rem;
 }
 
-header.hero .overlay {
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    0deg,
-    rgba(255,255,255,.02) 0 1px,
-    transparent 1px 4px
-  );
-  mix-blend-mode: overlay;
-  opacity: .15;
-  pointer-events: none;
-}
-
-header.hero::after {
+/* subtle dark overlay using ::before */
+header.hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 65%, rgba(0,0,0,.5) 100%);
+  background: rgba(0, 0, 0, 0.35); /* adjust opacity to taste */
+  z-index: 0;
 }
 
 .hero-content {
   position: relative;
-  z-index: 1;
+  z-index: 1; /* ensures content is above overlay */
   max-width: 980px;
   padding: 6rem 2rem 7rem;
   text-align: center;
+  color: #fff;
 }
 
 .hero-content h1 {
@@ -81,7 +65,6 @@ header.hero::after {
   font-size: clamp(3rem,6vw,5.5rem);
   letter-spacing: .06em;
   text-transform: uppercase;
-  color: #fff;
   font-family: 'Inter', sans-serif;
 }
 
@@ -95,9 +78,7 @@ header.hero::after {
 .hero-content .hero-subtitle {
   margin: 0;
   font-size: clamp(1.25rem,2.2vw,1.75rem);
-  color: #fff;
   letter-spacing: .04em;
-  text-transform: none;
 }
 </style>
 
