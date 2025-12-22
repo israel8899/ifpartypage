@@ -16,16 +16,15 @@ header.hero {
   display: grid;
   place-items: center;
   overflow: hidden;
-  background: linear-gradient(rgba(10,15,31,0.5), rgba(10,15,31,0.6));
+  background: linear-gradient(rgba(10,15,31,0.45), rgba(10,15,31,0.55));
 }
 
-/* Flag layer with advanced wave animation */
+/* Stationary flag */
 .hero-flag {
   position: absolute;
   inset: 0;
   background: url('./israel-flag-header.png') center/cover no-repeat;
   z-index: 0;
-  animation: wave 6s infinite linear;
 }
 
 /* Overlay to improve text readability */
@@ -48,10 +47,12 @@ header.hero {
 
 .hero-content h1 {
   margin: 0 0 1rem;
-  font-size: clamp(3rem,6vw,5.5rem);
+  font-size: clamp(3.2rem, 6vw, 5.8rem);
+  font-weight: 900; /* Bolder weight */
   letter-spacing: .06em;
   text-transform: uppercase;
   font-family: 'Inter', sans-serif;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.6); /* subtle shadow for contrast */
 }
 
 .hero-content .divider {
@@ -63,35 +64,10 @@ header.hero {
 
 .hero-content .hero-subtitle {
   margin: 0;
-  font-size: clamp(1.25rem,2.2vw,1.75rem);
+  font-size: clamp(1.3rem,2.2vw,1.85rem);
+  font-weight: 700; /* slightly bolder subtitle */
   letter-spacing: .04em;
   text-transform: none;
-}
-
-/* Advanced wave animation */
-@keyframes wave {
-  0%   { clip-path: polygon(0% 50%, 100% 48%, 100% 100%, 0% 100%); }
-  25%  { clip-path: polygon(0% 52%, 100% 50%, 100% 100%, 0% 100%); }
-  50%  { clip-path: polygon(0% 50%, 100% 52%, 100% 100%, 0% 100%); }
-  75%  { clip-path: polygon(0% 48%, 100% 50%, 100% 100%, 0% 100%); }
-  100% { clip-path: polygon(0% 50%, 100% 48%, 100% 100%, 0% 100%); }
-}
-
-/* Optional subtle secondary wave for realism */
-.hero-flag::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: url('./israel-flag-header.png') center/cover no-repeat;
-  opacity: 0.15;
-  animation: wave2 4s infinite ease-in-out;
-}
-
-@keyframes wave2 {
-  0%   { clip-path: polygon(0% 48%, 100% 50%, 100% 100%, 0% 100%); }
-  25%  { clip-path: polygon(0% 50%, 100% 52%, 100% 100%, 0% 100%); }
-  50%  { clip-path: polygon(0% 52%, 100% 50%, 100% 100%, 0% 100%); }
-  75%  { clip-path: polygon(0% 50%, 100% 48%, 100% 100%, 0% 100%); }
-  100% { clip-path: polygon(0% 48%, 100% 50%, 100% 100%, 0% 100%); }
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 </style>
