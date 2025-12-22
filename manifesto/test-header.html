@@ -1,5 +1,5 @@
 <header class="hero">
-  <div class="overlay"></div>
+  <div class="hero-overlay"></div>
   <div class="hero-content">
     <h1>ISRAEL FIRST</h1>
     <div class="divider"></div>
@@ -8,80 +8,66 @@
 </header>
 
 <style>
-/* Hero Section */
-header.hero {
-  position: relative;
-  min-height: 90vh;
-  display: grid;
-  place-items: center;
-  overflow: hidden;
+/* HERO */
+header.hero{
+  position:relative;
+  min-height:90vh;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
 
   /* Flag background */
   background:
-    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)),
-    url("./israel-flag-header.png") center/cover no-repeat;
+    linear-gradient(rgba(10,15,31,0.5), rgba(10,15,31,0.6)),
+    url('./israel-flag-header.png') center/cover no-repeat;
 
-  padding-bottom: 6rem;
-
-  /* Soft waving effect */
-  animation: flagFlutter 8s ease-in-out infinite alternate;
+  /* Clip to create waving effect */
+  --wave: 0;
+  animation: wave 6s ease-in-out infinite;
 }
 
-@keyframes flagFlutter {
-  0%   { transform: translateX(0) translateY(0) skewY(0deg); }
-  20%  { transform: translateX(-3px) translateY(2px) skewY(0.3deg); }
-  40%  { transform: translateX(4px) translateY(-2px) skewY(-0.3deg); }
-  60%  { transform: translateX(-2px) translateY(1px) skewY(0.2deg); }
-  80%  { transform: translateX(3px) translateY(-1px) skewY(-0.2deg); }
-  100% { transform: translateX(0) translateY(0) skewY(0deg); }
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
 }
 
-header.hero .overlay {
-  position: absolute;
-  inset: 0;
-  background:
-    repeating-linear-gradient(0deg, rgba(255,255,255,0.01) 0 1px, transparent 1px 4px);
-  mix-blend-mode: overlay;
-  opacity: 0.08;
-  pointer-events: none;
+.hero-content{
+  position:relative;
+  z-index:1;
+  max-width:980px;
+  padding:6rem 2rem 7rem;
+  text-align:center;
+  color:#fff;
 }
 
-header.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 65%, rgba(0,0,0,.45) 100%);
+.hero-content h1{
+  margin:0 0 1rem;
+  font-size:clamp(3rem,6vw,5.5rem);
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  font-family:'Inter', sans-serif;
 }
 
-.hero-content {
-  position: relative;
-  z-index: 1;
-  max-width: 980px;
-  padding: 6rem 2rem 7rem;
-  text-align: center;
+.hero-content .divider{
+  width:140px;
+  height:2px;
+  margin:1.5rem auto;
+  background:linear-gradient(90deg, transparent, #c7a14a, transparent);
 }
 
-.hero-content h1 {
-  margin: 0 0 1rem;
-  font-size: clamp(3rem,6vw,5.5rem);
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  color: #fff;
-  font-family: 'Inter', sans-serif;
+.hero-content .hero-subtitle{
+  margin:0;
+  font-size:clamp(1.25rem,2.2vw,1.75rem);
+  letter-spacing:.04em;
+  text-transform:none;
 }
 
-.hero-content .divider {
-  width: 140px;
-  height: 2px;
-  margin: 1.5rem auto;
-  background: linear-gradient(90deg, transparent, #c7a14a, transparent);
-}
-
-.hero-content .hero-subtitle {
-  margin: 0;
-  font-size: clamp(1.25rem, 2.2vw, 1.75rem);
-  color: #ffffff;
-  letter-spacing: .04em;
-  text-transform: none;
+/* Subtle wave animation using filter and background-position shift */
+@keyframes wave {
+  0%, 100% { background-position: center top; filter: hue-rotate(0deg); }
+  25% { filter: hue-rotate(0deg) contrast(1.02) brightness(0.97); background-position: center 1px; }
+  50% { filter: hue-rotate(0deg) contrast(1) brightness(1); background-position: center 2px; }
+  75% { filter: hue-rotate(0deg) contrast(1.02) brightness(0.97); background-position: center 1px; }
 }
 </style>
