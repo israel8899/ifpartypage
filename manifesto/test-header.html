@@ -19,18 +19,16 @@ header.hero {
   background: linear-gradient(rgba(10,15,31,0.5), rgba(10,15,31,0.6));
 }
 
-/* Flag pseudo-layer */
+/* Flag layer with advanced wave animation */
 .hero-flag {
   position: absolute;
   inset: 0;
   background: url('./israel-flag-header.png') center/cover no-repeat;
   z-index: 0;
-  /* Ensure the flag doesn't shift container text */
-  transform-origin: top center;
-  animation: ripple 4s ease-in-out infinite;
+  animation: wave 6s infinite linear;
 }
 
-/* Overlay to keep text readable */
+/* Overlay to improve text readability */
 .hero-overlay {
   position: absolute;
   inset: 0;
@@ -38,6 +36,7 @@ header.hero {
   z-index: 1;
 }
 
+/* Hero text */
 .hero-content {
   position: relative;
   z-index: 2;
@@ -69,22 +68,30 @@ header.hero {
   text-transform: none;
 }
 
-/* Smooth ripple effect using CSS transforms and keyframes */
-@keyframes ripple {
-  0% {
-    transform: translateY(0) rotateX(0deg) rotateY(0deg);
-  }
-  25% {
-    transform: translateY(-1px) rotateX(0.2deg) rotateY(-0.2deg);
-  }
-  50% {
-    transform: translateY(-2px) rotateX(0deg) rotateY(0deg);
-  }
-  75% {
-    transform: translateY(-1px) rotateX(-0.2deg) rotateY(0.2deg);
-  }
-  100% {
-    transform: translateY(0) rotateX(0deg) rotateY(0deg);
-  }
+/* Advanced wave animation */
+@keyframes wave {
+  0%   { clip-path: polygon(0% 50%, 100% 48%, 100% 100%, 0% 100%); }
+  25%  { clip-path: polygon(0% 52%, 100% 50%, 100% 100%, 0% 100%); }
+  50%  { clip-path: polygon(0% 50%, 100% 52%, 100% 100%, 0% 100%); }
+  75%  { clip-path: polygon(0% 48%, 100% 50%, 100% 100%, 0% 100%); }
+  100% { clip-path: polygon(0% 50%, 100% 48%, 100% 100%, 0% 100%); }
+}
+
+/* Optional subtle secondary wave for realism */
+.hero-flag::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('./israel-flag-header.png') center/cover no-repeat;
+  opacity: 0.15;
+  animation: wave2 4s infinite ease-in-out;
+}
+
+@keyframes wave2 {
+  0%   { clip-path: polygon(0% 48%, 100% 50%, 100% 100%, 0% 100%); }
+  25%  { clip-path: polygon(0% 50%, 100% 52%, 100% 100%, 0% 100%); }
+  50%  { clip-path: polygon(0% 52%, 100% 50%, 100% 100%, 0% 100%); }
+  75%  { clip-path: polygon(0% 50%, 100% 48%, 100% 100%, 0% 100%); }
+  100% { clip-path: polygon(0% 48%, 100% 50%, 100% 100%, 0% 100%); }
 }
 </style>
