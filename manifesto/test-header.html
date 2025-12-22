@@ -1,4 +1,5 @@
 <header class="hero">
+  <div class="hero-flag"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <h1>ISRAEL FIRST</h1>
@@ -9,65 +10,81 @@
 
 <style>
 /* HERO */
-header.hero{
-  position:relative;
-  min-height:90vh;
-  display:grid;
-  place-items:center;
-  overflow:hidden;
-
-  /* Flag background */
-  background:
-    linear-gradient(rgba(10,15,31,0.5), rgba(10,15,31,0.6)),
-    url('./israel-flag-header.png') center/cover no-repeat;
-
-  /* Clip to create waving effect */
-  --wave: 0;
-  animation: wave 6s ease-in-out infinite;
+header.hero {
+  position: relative;
+  min-height: 90vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: linear-gradient(rgba(10,15,31,0.5), rgba(10,15,31,0.6));
 }
 
-.hero-overlay{
-  position:absolute;
-  inset:0;
-  pointer-events:none;
+/* Flag pseudo-layer */
+.hero-flag {
+  position: absolute;
+  inset: 0;
+  background: url('./israel-flag-header.png') center/cover no-repeat;
+  z-index: 0;
+  /* Ensure the flag doesn't shift container text */
+  transform-origin: top center;
+  animation: ripple 4s ease-in-out infinite;
 }
 
-.hero-content{
-  position:relative;
-  z-index:1;
-  max-width:980px;
-  padding:6rem 2rem 7rem;
-  text-align:center;
-  color:#fff;
+/* Overlay to keep text readable */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10,15,31,0.35);
+  z-index: 1;
 }
 
-.hero-content h1{
-  margin:0 0 1rem;
-  font-size:clamp(3rem,6vw,5.5rem);
-  letter-spacing:.06em;
-  text-transform:uppercase;
-  font-family:'Inter', sans-serif;
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 980px;
+  padding: 6rem 2rem 7rem;
+  text-align: center;
+  color: #fff;
 }
 
-.hero-content .divider{
-  width:140px;
-  height:2px;
-  margin:1.5rem auto;
-  background:linear-gradient(90deg, transparent, #c7a14a, transparent);
+.hero-content h1 {
+  margin: 0 0 1rem;
+  font-size: clamp(3rem,6vw,5.5rem);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
 }
 
-.hero-content .hero-subtitle{
-  margin:0;
-  font-size:clamp(1.25rem,2.2vw,1.75rem);
-  letter-spacing:.04em;
-  text-transform:none;
+.hero-content .divider {
+  width: 140px;
+  height: 2px;
+  margin: 1.5rem auto;
+  background: linear-gradient(90deg, transparent, #c7a14a, transparent);
 }
 
-/* Subtle wave animation using filter and background-position shift */
-@keyframes wave {
-  0%, 100% { background-position: center top; filter: hue-rotate(0deg); }
-  25% { filter: hue-rotate(0deg) contrast(1.02) brightness(0.97); background-position: center 1px; }
-  50% { filter: hue-rotate(0deg) contrast(1) brightness(1); background-position: center 2px; }
-  75% { filter: hue-rotate(0deg) contrast(1.02) brightness(0.97); background-position: center 1px; }
+.hero-content .hero-subtitle {
+  margin: 0;
+  font-size: clamp(1.25rem,2.2vw,1.75rem);
+  letter-spacing: .04em;
+  text-transform: none;
+}
+
+/* Smooth ripple effect using CSS transforms and keyframes */
+@keyframes ripple {
+  0% {
+    transform: translateY(0) rotateX(0deg) rotateY(0deg);
+  }
+  25% {
+    transform: translateY(-1px) rotateX(0.2deg) rotateY(-0.2deg);
+  }
+  50% {
+    transform: translateY(-2px) rotateX(0deg) rotateY(0deg);
+  }
+  75% {
+    transform: translateY(-1px) rotateX(-0.2deg) rotateY(0.2deg);
+  }
+  100% {
+    transform: translateY(0) rotateX(0deg) rotateY(0deg);
+  }
 }
 </style>
