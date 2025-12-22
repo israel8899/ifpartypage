@@ -1,8 +1,5 @@
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
-
 <header class="hero">
-  <div class="hero-flag"></div>
-  <div class="hero-overlay"></div>
+  <div class="overlay"></div>
   <div class="hero-content">
     <h1>ISRAEL FIRST</h1>
     <div class="divider"></div>
@@ -11,61 +8,67 @@
 </header>
 
 <style>
-header.hero {
+header.hero{
   position: relative;
   min-height: 90vh;
   display: grid;
   place-items: center;
   overflow: hidden;
-  background: linear-gradient(rgba(10,15,31,0.45), rgba(10,15,31,0.55));
+  
+  /* Flag background with subtle dark overlay */
+  background:
+    linear-gradient(rgba(10,15,31,0.65), rgba(10,15,31,0.75)), /* darker overlay */
+    url("./israel-flag-header.png") center/cover no-repeat;
+
+  padding-bottom: 6rem;
 }
 
-.hero-flag {
+header.hero .overlay{
   position: absolute;
   inset: 0;
-  background: url('./israel-flag-header.png') center/cover no-repeat;
-  z-index: 0;
+  background: repeating-linear-gradient(0deg, rgba(255,255,255,.02) 0 1px, transparent 1px 4px);
+  mix-blend-mode: overlay;
+  opacity: .15;
+  pointer-events: none;
 }
 
-.hero-overlay {
+header.hero::after{
+  content: "";
   position: absolute;
   inset: 0;
-  background: rgba(10,15,31,0.35);
-  z-index: 1;
+  background: linear-gradient(180deg, transparent 65%, rgba(0,0,0,.5) 100%);
 }
 
-.hero-content {
+.hero-content{
   position: relative;
-  z-index: 2;
+  z-index: 1;
   max-width: 980px;
   padding: 6rem 2rem 7rem;
   text-align: center;
-  color: #fff;
 }
 
-.hero-content h1 {
+.hero-content h1{
   margin: 0 0 1rem;
-  font-size: clamp(3.2rem, 6vw, 5.8rem);
-  font-weight: 800;
+  font-size: clamp(3rem,6vw,5.5rem);
   letter-spacing: .06em;
   text-transform: uppercase;
-  font-family: 'Montserrat', sans-serif;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 800; /* bolder */
 }
 
-.hero-content .divider {
+.hero-content .divider{
   width: 140px;
   height: 2px;
   margin: 1.5rem auto;
   background: linear-gradient(90deg, transparent, #c7a14a, transparent);
 }
 
-.hero-content .hero-subtitle {
+.hero-content .hero-subtitle{
   margin: 0;
-  font-size: clamp(1.3rem,2.2vw,1.85rem);
-  font-weight: 700;
+  font-size: clamp(1.25rem,2.2vw,1.75rem);
+  color: #ffffff;
   letter-spacing: .04em;
   text-transform: none;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 </style>
