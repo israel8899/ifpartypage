@@ -2,39 +2,34 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Header Test</title>
-  <style>
-    body { margin: 0; font-family: Arial, sans-serif; }
 
-    .hero {
-      min-height: 90vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      background-image:
-        linear-gradient(
-          rgba(10,15,30,0.65),
-          rgba(10,15,30,0.65)
-        ),
-        url("https://israel8899.github.io/ifpartypage/israel-flag-waving.png");
+  <style>
+    /* Reset */
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* HERO — image only */
+    header.hero {
+      width: 100%;
+      min-height: 100vh;
+
+      background-image: url("israel-flag-waving.png");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
     }
-
-    .hero h1 {
-      color: white;
-      font-size: 4rem;
-      letter-spacing: 0.1em;
-    }
   </style>
 </head>
+
 <body>
 
-<header class="hero">
-  <h1>ISRAEL FIRST</h1>
-</header>
+  <header class="hero"></header>
 
 </body>
 </html>
