@@ -25,40 +25,28 @@ header.hero{
   display:grid;
   place-items:center;
   overflow:hidden;
-
-  /* Stationary flag background with subtle dark overlay */
   background:
-    linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.55)),
-    url("./israel-flag-header.png") center/cover no-repeat;
-
+    radial-gradient(1200px 600px at 10% 10%, rgba(30,111,255,.15), transparent 40%),
+    radial-gradient(900px 500px at 90% 20%, rgba(199,161,74,.15), transparent 45%),
+    linear-gradient(180deg, #0a0f1f 0%, #0c1328 55%, #0b0b0b 100%);
   padding-bottom:6rem;
 }
-
 header.hero .overlay{
-  position:absolute;
-  inset:0;
+  position:absolute;inset:0;
   background:
-    repeating-linear-gradient(0deg, rgba(255,255,255,.03) 0 1px, transparent 1px 4px);
-  mix-blend-mode:overlay;
-  opacity:.15;
-  pointer-events:none;
+    repeating-linear-gradient(0deg, rgba(255,255,255,.03) 0 1px, transparent 1px 3px);
+  mix-blend-mode:overlay;opacity:.25;pointer-events:none;
 }
-
 header.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(180deg, transparent 65%, rgba(0,0,0,.5) 100%);
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg, transparent 70%, rgba(0,0,0,.65) 100%);
 }
-
 .hero-content{
-  position:relative;
-  z-index:1;
+  position:relative;z-index:1;
   max-width:980px;
   padding:6rem 2rem 7rem;
   text-align:center;
 }
-
 .hero-content h1{
   margin:0 0 1rem;
   font-size:clamp(3rem,6vw,5.5rem);
@@ -66,16 +54,11 @@ header.hero::after{
   text-transform:uppercase;
   color:#fff;
   font-family:'Inter', sans-serif;
-  font-weight:700; /* bolder text */
 }
-
 .hero-content .divider{
-  width:140px;
-  height:2px;
-  margin:1.5rem auto;
+  width:140px;height:2px;margin:1.5rem auto;
   background:linear-gradient(90deg, transparent, var(--gold), transparent);
 }
-
 .hero-content .hero-subtitle{
   margin:0;
   font-size:clamp(1.25rem,2.2vw,1.75rem);
@@ -83,20 +66,6 @@ header.hero::after{
   letter-spacing:.04em;
   text-transform:none;
 }
-</style>
-</head>
-<body>
-
-<header class="hero">
-  <div class="overlay"></div>
-  <div class="hero-content">
-    <h1>ISRAEL FIRST</h1>
-    <div class="divider"></div>
-    <p class="hero-subtitle">A Vision for a Country That Puts Its Citizens First</p>
-  </div>
-</header>
-
-<!-- BODY -->
 
 /* BODY */
 main{max-width:960px;margin:6rem auto 6rem;padding:0 1.5rem;}
