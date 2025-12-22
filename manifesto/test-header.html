@@ -8,67 +8,80 @@
 </header>
 
 <style>
-header.hero{
-  position:relative;
-  min-height:90vh;
-  display:grid;
-  place-items:center;
-  overflow:hidden;
+/* Hero Section */
+header.hero {
+  position: relative;
+  min-height: 90vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
 
-  /* Muted flag background with dark overlay for text prominence */
+  /* Flag background */
   background:
-    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.6)),
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)),
     url("./israel-flag-header.png") center/cover no-repeat;
+  
+  padding-bottom: 6rem;
 
-  padding-bottom:6rem;
+  /* Animate background with soft ripple effect */
+  transform: skewY(0deg);
+  animation: flagRipple 8s ease-in-out infinite alternate;
 }
 
-header.hero .overlay{
-  position:absolute;
-  inset:0;
+@keyframes flagRipple {
+  0% { transform: skewY(0deg) translateX(0); }
+  25% { transform: skewY(0.3deg) translateX(-5px); }
+  50% { transform: skewY(-0.3deg) translateX(5px); }
+  75% { transform: skewY(0.2deg) translateX(-3px); }
+  100% { transform: skewY(0deg) translateX(0); }
+}
+
+header.hero .overlay {
+  position: absolute;
+  inset: 0;
   background:
     repeating-linear-gradient(0deg, rgba(255,255,255,0.01) 0 1px, transparent 1px 4px);
-  mix-blend-mode:overlay;
-  opacity:.1;
-  pointer-events:none;
+  mix-blend-mode: overlay;
+  opacity: 0.08;
+  pointer-events: none;
 }
 
-header.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(180deg, transparent 65%, rgba(0,0,0,.5) 100%);
+header.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 65%, rgba(0,0,0,.45) 100%);
 }
 
-.hero-content{
-  position:relative;
-  z-index:1;
-  max-width:980px;
-  padding:6rem 2rem 7rem;
-  text-align:center;
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 980px;
+  padding: 6rem 2rem 7rem;
+  text-align: center;
 }
 
-.hero-content h1{
-  margin:0 0 1rem;
-  font-size:clamp(3rem,6vw,5.5rem);
-  letter-spacing:.06em;
-  text-transform:uppercase;
-  color:#fff;
-  font-family:'Inter', sans-serif;
+.hero-content h1 {
+  margin: 0 0 1rem;
+  font-size: clamp(3rem,6vw,5.5rem);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
 }
 
-.hero-content .divider{
-  width:140px;
-  height:2px;
-  margin:1.5rem auto;
-  background:linear-gradient(90deg, transparent, #c7a14a, transparent);
+.hero-content .divider {
+  width: 140px;
+  height: 2px;
+  margin: 1.5rem auto;
+  background: linear-gradient(90deg, transparent, #c7a14a, transparent);
 }
 
-.hero-content .hero-subtitle{
-  margin:0;
-  font-size:clamp(1.25rem,2.2vw,1.75rem);
-  color:#ffffff;
-  letter-spacing:.04em;
-  text-transform:none;
+.hero-content .hero-subtitle {
+  margin: 0;
+  font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+  color: #ffffff;
+  letter-spacing: .04em;
+  text-transform: none;
 }
 </style>
