@@ -1,3 +1,5 @@
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
+
 <header class="hero">
   <div class="hero-flag"></div>
   <div class="hero-overlay"></div>
@@ -9,7 +11,6 @@
 </header>
 
 <style>
-/* HERO */
 header.hero {
   position: relative;
   min-height: 90vh;
@@ -19,7 +20,6 @@ header.hero {
   background: linear-gradient(rgba(10,15,31,0.45), rgba(10,15,31,0.55));
 }
 
-/* Stationary flag */
 .hero-flag {
   position: absolute;
   inset: 0;
@@ -27,7 +27,6 @@ header.hero {
   z-index: 0;
 }
 
-/* Overlay to improve text readability */
 .hero-overlay {
   position: absolute;
   inset: 0;
@@ -35,7 +34,6 @@ header.hero {
   z-index: 1;
 }
 
-/* Hero text */
 .hero-content {
   position: relative;
   z-index: 2;
@@ -48,11 +46,11 @@ header.hero {
 .hero-content h1 {
   margin: 0 0 1rem;
   font-size: clamp(3.2rem, 6vw, 5.8rem);
-  font-weight: 900; /* Bolder weight */
+  font-weight: 800;
   letter-spacing: .06em;
   text-transform: uppercase;
-  font-family: 'Inter', sans-serif;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.6); /* subtle shadow for contrast */
+  font-family: 'Montserrat', sans-serif;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
 }
 
 .hero-content .divider {
@@ -65,7 +63,7 @@ header.hero {
 .hero-content .hero-subtitle {
   margin: 0;
   font-size: clamp(1.3rem,2.2vw,1.85rem);
-  font-weight: 700; /* slightly bolder subtitle */
+  font-weight: 700;
   letter-spacing: .04em;
   text-transform: none;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
