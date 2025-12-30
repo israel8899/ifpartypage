@@ -44,32 +44,83 @@ header p {
 
 .section h2 {
   font-size: 38px;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   color: #003b78;
   text-align: center;
   font-weight: 800;
 }
 
-.problem-block {
-  background: white;
-  padding: 35px;
-  margin-bottom: 25px;
-  border-radius: 14px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.12);
-  font-size: 19px;
+/* ISSUE CARDS */
+.issue-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 36px;
+  margin-bottom: 32px;
+  box-shadow: 0 10px 22px rgba(0,0,0,0.12);
 }
 
+.issue-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.issue-header span {
+  font-size: 34px;
+}
+
+.issue-header h3 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 800;
+  color: #003b78;
+}
+
+.issue-summary {
+  font-size: 19px;
+  margin-bottom: 20px;
+}
+
+.issue-divider {
+  height: 1px;
+  background: linear-gradient(to right, #ddd, transparent);
+  margin: 18px 0;
+}
+
+.issue-evidence {
+  font-size: 15px;
+  color: #555;
+  padding: 0;
+  margin: 0;
+}
+
+.issue-evidence li {
+  list-style: none;
+  margin-bottom: 8px;
+  padding-left: 18px;
+  position: relative;
+}
+
+.issue-evidence li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: #999;
+}
+
+/* ROADMAP */
 .pillars {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
+  gap: 26px;
 }
 
 .pillar {
   background: white;
-  padding: 28px;
-  border-radius: 14px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
 }
 
 .pillar h3 {
@@ -78,6 +129,7 @@ header p {
   font-size: 23px;
 }
 
+/* LANGUAGE TOGGLE */
 .lang-toggle {
   position: fixed;
   top: 18px;
@@ -96,7 +148,6 @@ header p {
 
 <body>
 
-<!-- Language Toggle -->
 <div class="lang-toggle" id="langToggle">עברית</div>
 
 <header>
@@ -113,24 +164,96 @@ header p {
       What’s Being Taken From Israel
   </h2>
 
-  <div class="problem-block" data-en="Foreign governments now openly dictate Israel’s borders, military conduct, and political limits. Decisions that belong in Jerusalem are increasingly made elsewhere."
-       data-he="ממשלות זרות מכתיבות בגלוי את גבולות ישראל, פעולות צה״ל ומדיניות לאומית. החלטות שאמורות להתקבל בירושלים מתקבלות במקומות אחרים.">
-    Foreign governments now openly dictate Israel’s borders, military conduct, and political limits. Decisions that belong in Jerusalem are increasingly made elsewhere.
+  <!-- SOVEREIGNTY -->
+  <div class="issue-card">
+    <div class="issue-header">
+      <span>🏛️</span>
+      <h3 data-en="Israel Is Losing Control of Its Own Future"
+          data-he="ישראל מאבדת שליטה על עתידה">
+          Israel Is Losing Control of Its Own Future
+      </h3>
+    </div>
+
+    <div class="issue-summary"
+         data-en="Decisions about Israel’s borders, military actions, and diplomatic limits are increasingly dictated by foreign governments — not Israelis."
+         data-he="החלטות על גבולות ישראל, פעולות צה״ל ומדיניות חוץ מוכתבות יותר ויותר על ידי ממשלות זרות — לא על ידי אזרחי ישראל.">
+      Decisions about Israel’s borders, military actions, and diplomatic limits are increasingly dictated by foreign governments — not Israelis.
+    </div>
+
+    <div class="issue-divider"></div>
+
+    <ul class="issue-evidence">
+      <li><em>“I will not allow Israel to annex the West Bank.” — Donald Trump</em></li>
+      <li><em>“If they go into Rafah, I’m not supplying the weapons.” — Joe Biden</em></li>
+      <li><em>Trump’s 20-Point Plan references a pathway to Palestinian statehood</em></li>
+    </ul>
   </div>
 
-  <div class="problem-block" data-en="Young Israelis are locked out of home ownership. Artificial land restrictions and failed planning policies drive prices beyond reach."
-       data-he="צעירים בישראל מודרים מבעלות על בית. מגבלות קרקע מלאכותיות ומדיניות כושלת דוחפות מחירים מעבר להישג יד.">
-    Young Israelis are locked out of home ownership. Artificial land restrictions and failed planning policies drive prices beyond reach.
+  <!-- HOUSING -->
+  <div class="issue-card">
+    <div class="issue-header">
+      <span>🏠</span>
+      <h3 data-en="Home Ownership Is Being Engineered Out of Reach"
+          data-he="בעלות על דיור הפכה לבלתי אפשרית">
+          Home Ownership Is Being Engineered Out of Reach
+      </h3>
+    </div>
+
+    <div class="issue-summary"
+         data-en="Artificial land restrictions and planning failures have locked young Israelis out of owning homes and starting families."
+         data-he="מגבלות קרקע מלאכותיות וכשלי תכנון דחקו צעירים ישראלים החוצה משוק הדיור.">
+      Artificial land restrictions and planning failures have locked young Israelis out of owning homes and starting families.
+    </div>
+
+    <div class="issue-divider"></div>
+
+    <ul class="issue-evidence">
+      <li><em>Rental prices surged 57% over two decades</em></li>
+      <li><em>Young adults in Jerusalem spend ~60% of income on housing</em></li>
+      <li><em>Only 15% of Israelis aged 25–34 own homes</em></li>
+    </ul>
   </div>
 
-  <div class="problem-block" data-en="Mass foreign labor suppresses wages while Israelis struggle to find stable, well-paying work."
-       data-he="עבודה זרה בהיקף רחב מדכאת שכר בזמן שאזרחים ישראלים מתקשים למצוא תעסוקה יציבה ומכבדת.">
-    Mass foreign labor suppresses wages while Israelis struggle to find stable, well-paying work.
+  <!-- WAGES -->
+  <div class="issue-card">
+    <div class="issue-header">
+      <span>💼</span>
+      <h3 data-en="Israeli Wages Are Being Suppressed"
+          data-he="השכר בישראל נשחק">
+          Israeli Wages Are Being Suppressed
+      </h3>
+    </div>
+
+    <div class="issue-summary"
+         data-en="Mass foreign labor depresses wages and eliminates opportunity while Israelis struggle to find stable work."
+         data-he="ייבוא עבודה זרה בהיקף רחב מדכא שכר ומצמצם הזדמנויות תעסוקה לאזרחים ישראלים.">
+      Mass foreign labor depresses wages and eliminates opportunity while Israelis struggle to find stable work.
+    </div>
+
+    <div class="issue-divider"></div>
+
+    <ul class="issue-evidence">
+      <li><em>195,000 legal foreign workers and 33,000 illegal workers</em></li>
+      <li><em>145,700 officially unemployed (Oct 2025)</em></li>
+      <li><em>OECD: below-average median wages</em></li>
+    </ul>
   </div>
 
-  <div class="problem-block" data-en="Endless wars are prolonged by ceasefires, foreign pressure, and policies designed to manage conflict instead of ending it."
-       data-he="מלחמות אינסופיות נמשכות בשל הפסקות אש, לחץ זר ומדיניות שמנהלת סכסוך במקום להכריע אותו.">
-    Endless wars are prolonged by ceasefires, foreign pressure, and policies designed to manage conflict instead of ending it.
+  <!-- WAR -->
+  <div class="issue-card">
+    <div class="issue-header">
+      <span>⚔️</span>
+      <h3 data-en="Wars Are Being Prolonged, Not Won"
+          data-he="מלחמות נמשכות במקום להסתיים">
+          Wars Are Being Prolonged, Not Won
+      </h3>
+    </div>
+
+    <div class="issue-summary"
+         data-en="Foreign pressure, ceasefires, and prisoner swaps keep Israel trapped in endless cycles of conflict."
+         data-he="לחץ זר, הפסקות אש ועסקאות שבויים משאירים את ישראל במעגלי לחימה אינסופיים.">
+      Foreign pressure, ceasefires, and prisoner swaps keep Israel trapped in endless cycles of conflict.
+    </div>
   </div>
 </div>
 
@@ -142,42 +265,28 @@ header p {
 
   <div class="pillars">
     <div class="pillar">
-      <h3>🛡️ <span data-en="Win Wars Decisively" data-he="ניצחון מוחלט במלחמות">Win Wars Decisively</span></h3>
-      <p data-en="No more ceasefires or prisoner swaps. The IDF fights to win — fully."
-         data-he="בלי הפסקות אש ובלי עסקאות שבויים. צה״ל נלחם כדי לנצח.">
-         No more ceasefires or prisoner swaps. The IDF fights to win — fully.
-      </p>
+      <h3>🛡️ <span data-en="Win Wars Decisively" data-he="ניצחון מוחלט">Win Wars Decisively</span></h3>
+      No ceasefires. No prisoner swaps. The IDF fights to win.
     </div>
 
     <div class="pillar">
       <h3>🌍 <span data-en="End Foreign Interference" data-he="עצירת התערבות זרה">End Foreign Interference</span></h3>
-      <p data-en="Israeli policy will be decided by Israelis — not NGOs or foreign capitals."
-         data-he="מדיניות ישראל תיקבע על ידי ישראלים — לא על ידי ארגונים זרים או בירות זרות.">
-         Israeli policy will be decided by Israelis — not NGOs or foreign capitals.
-      </p>
+      Israeli policy decided by Israelis alone.
     </div>
 
     <div class="pillar">
-      <h3>🏡 <span data-en="Unleash Home Ownership" data-he="שחרור בעלות על דיור">Unleash Home Ownership</span></h3>
-      <p data-en="Apply sovereignty and open land for real development and family homes."
-         data-he="החלת ריבונות ופתיחת קרקעות לפיתוח אמיתי ולבתים למשפחות.">
-         Apply sovereignty and open land for real development and family homes.
-      </p>
+      <h3>🏡 <span data-en="Unleash Home Ownership" data-he="שחרור הקרקע">Unleash Home Ownership</span></h3>
+      Sovereignty unlocks land and restores affordability.
     </div>
 
     <div class="pillar">
-      <h3>💼 <span data-en="Raise Israeli Wages" data-he="העלאת שכר בישראל">Raise Israeli Wages</span></h3>
-      <p data-en="Reduce foreign labor and restore dignity to Israeli work."
-         data-he="צמצום עבודה זרה והשבת הכבוד לעבודה ישראלית.">
-         Reduce foreign labor and restore dignity to Israeli work.
-      </p>
+      <h3>💼 <span data-en="Raise Israeli Wages" data-he="העלאת שכר">Raise Israeli Wages</span></h3>
+      Phase out foreign labor. Restore dignity to work.
     </div>
   </div>
 </div>
 
-<!-- FOUNDER JOIN SECTION (UNCHANGED FUNCTIONALLY) -->
-<!-- paste your existing founder section here exactly as-is -->
-<!-- no logic removed -->
+<!-- PASTE YOUR EXISTING FOUNDER-JOIN SECTION HERE EXACTLY AS-IS -->
 
 <script>
 let currentLang = 'en';
