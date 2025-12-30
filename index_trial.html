@@ -8,12 +8,13 @@
 <style>
 body {
   margin: 0;
-  font-family: "Arial Black", Arial, sans-serif;
+  font-family: Arial, sans-serif;
   background: #f0f2f5;
   color: #222;
   line-height: 1.65;
 }
 
+/* HEADER */
 header {
   background: linear-gradient(135deg, #001a3f, #004a99);
   color: white;
@@ -28,7 +29,6 @@ header h1 {
   margin: 0;
   font-weight: 900;
   letter-spacing: 2px;
-  text-shadow: 0 4px 10px rgba(0,0,0,0.4);
 }
 
 header p {
@@ -37,6 +37,7 @@ header p {
   opacity: 0.95;
 }
 
+/* LANGUAGE TOGGLE */
 .lang-toggle {
   position: fixed;
   top: 18px;
@@ -51,6 +52,7 @@ header p {
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
+/* SECTIONS */
 .section {
   padding: 70px 20px;
   max-width: 1100px;
@@ -65,77 +67,66 @@ header p {
   color: #003b78;
 }
 
-/* Dynamic Issue Cards */
+/* ISSUE BOXES — STATIC */
 .issue-card {
-  background: linear-gradient(135deg, #001a3f, #004a99);
-  color: white;
-  border-radius: 18px;
-  padding: 36px;
-  margin-bottom: 40px;
-  transform: skewY(-1deg);
-  transition: transform 0.3s, box-shadow 0.3s;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-}
-
-.issue-card:hover {
-  transform: skewY(0deg) translateY(-6px);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+  background: white;
+  border-radius: 16px;
+  padding: 34px;
+  margin-bottom: 36px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
 
 .issue-header {
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 14px;
-  transform: skewY(1deg);
+  gap: 14px;
+  margin-bottom: 12px;
 }
 
 .issue-header span {
-  font-size: 38px;
+  font-size: 34px;
 }
 
 .issue-header h3 {
   margin: 0;
-  font-size: 28px;
-  font-weight: 900;
-  text-transform: uppercase;
+  font-size: 26px;
+  font-weight: 800;
+  color: #003b78;
 }
 
 .issue-summary {
   font-size: 18px;
-  margin-bottom: 20px;
-  transform: skewY(1deg);
+  margin-bottom: 18px;
 }
 
 .issue-divider {
   height: 2px;
-  background: linear-gradient(to right, #ffcc00, transparent);
+  background: linear-gradient(to right, #003b78, transparent);
   margin: 18px 0;
 }
 
 .issue-evidence {
   font-size: 14px;
-  color: #ffdd57;
+  color: #555;
   padding: 0;
   margin: 0;
-  transform: skewY(1deg);
 }
 
 .issue-evidence li {
   list-style: none;
   margin-bottom: 8px;
+  padding-left: 16px;
   position: relative;
-  padding-left: 18px;
 }
 
 .issue-evidence li::before {
   content: "—";
   position: absolute;
   left: 0;
-  color: #ffd700;
+  color: #003b78;
 }
 
-/* Roadmap Pillars */
+/* ROADMAP */
 .pillars {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -143,34 +134,27 @@ header p {
 }
 
 .pillar {
-  background: linear-gradient(135deg, #ffcc00, #ffd85c);
+  background: white;
   padding: 28px;
-  border-radius: 16px;
-  box-shadow: 0 8px 18px rgba(0,0,0,0.2);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.pillar:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.3);
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
 
 .pillar h3 {
   margin-top: 0;
-  font-size: 23px;
+  font-size: 22px;
   font-weight: 800;
   color: #003b78;
 }
 
 .pillar p {
-  margin: 12px 0 0 0;
+  margin: 10px 0;
   font-size: 16px;
-  color: #003b78;
 }
 
 .pillar a.read-more {
   display: inline-block;
-  margin-top: 10px;
+  margin-top: 6px;
   font-weight: 700;
   color: #003b78;
   text-decoration: underline;
@@ -191,106 +175,257 @@ header p {
   </p>
 </header>
 
+<!-- THE DILEMMA -->
 <div class="section">
-  <h2 data-en="What’s Being Taken From Israel" data-he="מה נלקח מישראל">What’s Being Taken From Israel</h2>
+  <h2 data-en="The Dilemma" data-he="הדילמה">The Dilemma</h2>
 
-  <!-- Sovereignty -->
   <div class="issue-card">
     <div class="issue-header">
       <span>🏛️</span>
-      <h3 data-en="Israel Is Losing Control of Its Own Future"
-          data-he="ישראל מאבדת שליטה על עתידה">Israel Is Losing Control of Its Own Future</h3>
+      <h3>Loss of Sovereign Decision-Making</h3>
     </div>
-    <div class="issue-summary" data-en="Decisions about Israel’s borders, military actions, and diplomacy are increasingly dictated by foreign governments — not Israelis."
-         data-he="החלטות על גבולות ישראל, פעולות צה״ל ומדיניות חוץ מוכתבות יותר ויותר על ידי ממשלות זרות — לא על ידי אזרחי ישראל.">
-         Decisions about Israel’s borders, military actions, and diplomacy are increasingly dictated by foreign governments — not Israelis.
+    <div class="issue-summary">
+      Decisions about Israel’s borders, military actions, and long-term future are increasingly dictated by foreign governments — not Israelis.
     </div>
     <div class="issue-divider"></div>
     <ul class="issue-evidence">
       <li>“I will not allow Israel to annex the West Bank.” — Donald Trump</li>
       <li>“If they go into Rafah, I’m not supplying the weapons.” — Joe Biden</li>
-      <li>Trump’s 20-Point Plan references a pathway to Palestinian statehood</li>
+      <li>US-backed plans reference Palestinian statehood pathways</li>
     </ul>
   </div>
 
-  <!-- Housing -->
   <div class="issue-card">
     <div class="issue-header">
       <span>🏠</span>
-      <h3 data-en="Home Ownership Is Being Engineered Out of Reach"
-          data-he="בעלות על דיור הפכה לבלתי אפשרית">Home Ownership Is Being Engineered Out of Reach</h3>
+      <h3>A Manufactured Housing Crisis</h3>
     </div>
-    <div class="issue-summary" data-en="Artificial land restrictions and planning failures have locked young Israelis out of owning homes and starting families."
-         data-he="מגבלות קרקע מלאכותיות וכשלי תכנון דחקו צעירים ישראלים החוצה משוק הדיור.">
-         Artificial land restrictions and planning failures have locked young Israelis out of owning homes and starting families.
+    <div class="issue-summary">
+      Artificial land restrictions and political paralysis have priced young Israelis out of home ownership.
     </div>
     <div class="issue-divider"></div>
     <ul class="issue-evidence">
-      <li>Rental prices surged 57% over two decades</li>
-      <li>Young adults in Jerusalem spend ~60% of income on housing</li>
+      <li>Rental prices up 57% over two decades</li>
+      <li>Young adults spend ~60% of income on housing in Jerusalem</li>
       <li>Only 15% of Israelis aged 25–34 own homes</li>
     </ul>
   </div>
 
-  <!-- Wages -->
   <div class="issue-card">
     <div class="issue-header">
       <span>💼</span>
-      <h3 data-en="Israeli Wages Are Being Suppressed" data-he="השכר בישראל נשחק">Israeli Wages Are Being Suppressed</h3>
+      <h3>Wages Under Pressure</h3>
     </div>
-    <div class="issue-summary" data-en="Mass foreign labor depresses wages and eliminates opportunity while Israelis struggle to find stable work."
-         data-he="ייבוא עבודה זרה בהיקף רחב מדכא שכר ומצמצם הזדמנויות תעסוקה לאזרחים ישראלים.">
-         Mass foreign labor depresses wages and eliminates opportunity while Israelis struggle to find stable work.
+    <div class="issue-summary">
+      Large-scale foreign labor depresses wages and crowds Israelis out of stable employment.
     </div>
     <div class="issue-divider"></div>
     <ul class="issue-evidence">
-      <li>195,000 legal foreign workers and 33,000 illegal workers</li>
+      <li>195,000 legal + 33,000 illegal foreign workers</li>
       <li>145,700 officially unemployed (Oct 2025)</li>
       <li>OECD: below-average median wages</li>
     </ul>
   </div>
 
-  <!-- War -->
   <div class="issue-card">
     <div class="issue-header">
       <span>⚔️</span>
-      <h3 data-en="Wars Are Being Prolonged, Not Won" data-he="מלחמות נמשכות במקום להסתיים">Wars Are Being Prolonged, Not Won</h3>
+      <h3>Endless Conflict Cycles</h3>
     </div>
-    <div class="issue-summary" data-en="Foreign pressure, ceasefires, and prisoner swaps keep Israel trapped in endless cycles of conflict."
-         data-he="לחץ זר, הפסקות אש ועסקאות שבויים משאירים את ישראל במעגלי לחימה אינסופיים.">
-         Foreign pressure, ceasefires, and prisoner swaps keep Israel trapped in endless cycles of conflict.
+    <div class="issue-summary">
+      Ceasefires, pressure campaigns, and prisoner swaps prolong wars instead of ending them.
     </div>
   </div>
 </div>
 
+<!-- ROADMAP -->
 <div class="section">
-  <h2 data-en="Israel First Roadmap" data-he="מפת הדרכים של ישראל תחילה">Israel First Roadmap</h2>
+  <h2>Israel First Roadmap</h2>
+
   <div class="pillars">
     <div class="pillar">
-      <h3>🛡️ <span data-en="Win Wars Decisively" data-he="ניצחון מוחלט">Win Wars Decisively</span></h3>
-      <p>No ceasefires. No prisoner swaps. The IDF fights to win.</p>
-      <a href="https://www.israelfirstparty.com/manifesto#military" class="read-more">Read the full military strategy →</a>
+      <h3>🛡️ Win Wars Decisively</h3>
+      <p>No ceasefires. No prisoner swaps. Victory restores deterrence.</p>
+      <a href="https://www.israelfirstparty.com/manifesto#military" class="read-more">
+        Read the military doctrine →
+      </a>
     </div>
+
     <div class="pillar">
-      <h3>🌍 <span data-en="End Foreign Interference" data-he="עצירת התערבות זרה">End Foreign Interference</span></h3>
-      <p>Israeli policy decided by Israelis alone.</p>
-      <a href="https://www.israelfirstparty.com/manifesto#sovereignty" class="read-more">Read the full sovereignty plan →</a>
+      <h3>🌍 End Foreign Interference</h3>
+      <p>Israel’s future must be decided in Jerusalem — nowhere else.</p>
+      <a href="https://www.israelfirstparty.com/manifesto#sovereignty" class="read-more">
+        Read the sovereignty framework →
+      </a>
     </div>
+
     <div class="pillar">
-      <h3>🏡 <span data-en="Unleash Home Ownership" data-he="שחרור הקרקע">Unleash Home Ownership</span></h3>
-      <p>Sovereignty unlocks land and restores affordability.</p>
-      <a href="https://www.israelfirstparty.com/manifesto#housing" class="read-more">Read the full housing strategy →</a>
+      <h3>🏡 Unleash Home Ownership</h3>
+      <p>Sovereignty unlocks land, affordability, and growth.</p>
+      <a href="https://www.israelfirstparty.com/manifesto#housing" class="read-more">
+        Read the housing strategy →
+      </a>
     </div>
+
     <div class="pillar">
-      <h3>💼 <span data-en="Raise Israeli Wages" data-he="העלאת שכר">Raise Israeli Wages</span></h3>
-      <p>Phase out foreign labor. Restore dignity to work.</p>
-      <a href="https://www.israelfirstparty.com/manifesto#labor" class="read-more">Read the full labor plan →</a>
+      <h3>💼 Raise Israeli Wages</h3>
+      <p>End labor dumping. Restore dignity to work.</p>
+      <a href="https://www.israelfirstparty.com/manifesto#labor" class="read-more">
+        Read the labor policy →
+      </a>
     </div>
   </div>
 </div>
 
-<!-- PASTE YOUR EXISTING FOUNDER-JOIN SECTION HERE -->
+<!-- PASTE YOUR EXISTING FOUNDER-JOIN SECTION HERE (UNCHANGED) -->
+<section id="founder-join" style="max-width:900px;margin:40px auto;padding:28px;background:#003b78;color:#fff;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.12);">
+  <h2 style="margin:0 0 10px;font-size:28px;">Join the Movement</h2>
+  <p style="margin:0 0 18px;font-size:16px;line-height:1.4;">
+    Interested in becoming a party founding member? <strong>Totally free — but you must be an Israeli citizen and resident.</strong><br>
+    If you're not eligible to be a founding member, sign up to join the community instead.
+  </p>
 
+  <form id="founderForm" style="display:flex;flex-direction:column;gap:12px;margin-top:12px;">
+    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+      <input name="name" placeholder="Full name" required style="flex:1;min-width:220px;padding:12px;border-radius:8px;border:none;font-size:16px;" />
+      <input name="email" type="email" placeholder="Email address" required style="flex:1;min-width:220px;padding:12px;border-radius:8px;border:none;font-size:16px;" />
+    </div>
+
+    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+      <input name="phone" type="tel" placeholder="Phone (optional)" style="flex:1;min-width:220px;padding:12px;border-radius:8px;border:none;font-size:16px;" />
+      <input name="country" id="countryInput" placeholder="Country of residence (e.g. Israel)" required style="flex:1;min-width:220px;padding:12px;border-radius:8px;border:none;font-size:16px;" />
+    </div>
+
+    <div style="background:rgba(255,255,255,0.06);padding:12px;border-radius:8px;">
+      <label style="font-weight:700;margin-right:12px;">Interested in becoming a founding member?</label>
+      <label style="margin-right:10px;">
+        <input type="radio" name="founder" value="yes" required /> Yes
+      </label>
+      <label>
+        <input type="radio" name="founder" value="no" required /> No
+      </label>
+    </div>
+
+    <div id="formFeedback" aria-live="polite" style="min-height:20px;color:#ffdd57;font-weight:700;"></div>
+
+    <div style="display:flex;gap:12px;align-items:center;">
+      <button type="submit" style="background:#ffcc00;border:none;padding:12px 20px;border-radius:8px;font-weight:800;cursor:pointer;">Submit</button>
+      <button id="clearBtn" type="button" style="background:transparent;border:2px solid rgba(255,255,255,0.12);padding:10px 16px;border-radius:8px;color:#fff;cursor:pointer;">Clear</button>
+      <div id="spinner" style="display:none;margin-left:10px;color:#fff;">Sending…</div>
+    </div>
+
+    <p style="margin:10px 0 0;font-size:13px;opacity:0.9;">
+      By joining you consent to receive updates from Israel First. We will not sell your data.
+    </p>
+  </form>
+</section>
+
+<script>
+(function () {
+  const form = document.getElementById('founderForm');
+  const countryInput = document.getElementById('countryInput');
+  const feedback = document.getElementById('formFeedback');
+  const spinner = document.getElementById('spinner');
+  const clearBtn = document.getElementById('clearBtn');
+
+  function isIsrael(text) {
+    if (!text) return false;
+    const t = text.trim().toLowerCase();
+    return (
+      t === 'israel' ||
+      t === 'state of israel' ||
+      t === 'ישראל' ||
+      t.startsWith('israel')
+    );
+  }
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    feedback.style.color = "#ffdd57";
+    feedback.textContent = '';
+
+    const fd = new FormData(form);
+
+    const name = fd.get('name')?.trim();
+    const email = fd.get('email')?.trim();
+    const phone = fd.get('phone')?.trim();
+    const country = fd.get('country')?.trim();
+    const founder = fd.get('founder');
+
+    if (!name || !email || !country || !founder) {
+      feedback.textContent = 'Please complete all required fields.';
+      return;
+    }
+
+    if (founder === 'yes' && !isIsrael(country)) {
+      feedback.textContent =
+        'To be a founding member you must be an Israeli resident. If not, select "No".';
+      return;
+    }
+
+    spinner.style.display = 'inline';
+
+    try {
+      // Build URL-encoded body (the same format as your successful test.html)
+      const encoded = new URLSearchParams();
+      encoded.append('name', name);
+      encoded.append('email', email);
+      encoded.append('phone', phone);
+      encoded.append('country', country);
+      encoded.append('founder', founder);
+
+      const res = await fetch("https://script.google.com/macros/s/AKfycbxP9hcZuaWpbMnpmKAsCP49Bvsf8PVyUPN4a8MCb7l1CWFN-vmGpxMR1LoIBFwRyCkgFw/exec", {
+        method: "POST",
+        body: encoded
+      });
+
+      const json = await res.json();
+
+      if (json.success) {
+        feedback.style.color = "#b8ff9b";
+        feedback.textContent =
+          founder === 'yes'
+            ? 'Thank you — your interest in being a founding member has been recorded.'
+            : 'Thanks — you are now signed up to join our community.';
+        form.reset();
+      } else {
+        feedback.style.color = "#ffdd57";
+        feedback.textContent =
+          'Error: ' + (json.error || 'Please try again.');
+      }
+
+    } catch (err) {
+      feedback.style.color = "#ffdd57";
+      feedback.textContent =
+        'There was an error submitting the form.';
+      console.error(err);
+    } finally {
+      spinner.style.display = 'none';
+    }
+  });
+
+  clearBtn.addEventListener('click', function () {
+    form.reset();
+    feedback.textContent = '';
+  });
+})();
+</script>
+
+<!-- Floating button -->
+  <a href="#founder-join" style="position:fixed; bottom:30px; right:30px; background:#ffcc00; color:#003b78; font-weight:800; padding:14px 20px; border-radius:50px; box-shadow:0 4px 12px rgba(0,0,0,0.2); text-decoration:none; z-index:1000; transition: transform 0.2s, box-shadow 0.2s;"
+     onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 16px rgba(0,0,0,0.25)';"
+     onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.2)';"
+  >
+     Join the Fight
+  </a>
+
+  <!-- Optional: script for smooth scrolling -->
+  <script>
+    document.querySelector('a[href="#founder-join"]').addEventListener('click', function(e){
+      e.preventDefault();
+      document.querySelector('#founder-join').scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
 <script>
 let currentLang = 'en';
 const toggle = document.getElementById('langToggle');
