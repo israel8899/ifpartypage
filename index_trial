@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Israel First Movement</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  color: #222;
+  line-height: 1.65;
+}
+
+header {
+  background: linear-gradient(135deg, #001a3f, #004a99);
+  color: white;
+  padding: 100px 20px;
+  text-align: center;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+header h1 {
+  font-size: 64px;
+  margin: 0;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+header p {
+  font-size: 26px;
+  margin-top: 15px;
+  opacity: 0.95;
+}
+
+.section {
+  padding: 70px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.section h2 {
+  font-size: 38px;
+  margin-bottom: 30px;
+  color: #003b78;
+  text-align: center;
+  font-weight: 800;
+}
+
+.problem-block {
+  background: white;
+  padding: 35px;
+  margin-bottom: 25px;
+  border-radius: 14px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+  font-size: 19px;
+}
+
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.pillar {
+  background: white;
+  padding: 28px;
+  border-radius: 14px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+}
+
+.pillar h3 {
+  margin-top: 0;
+  color: #003b78;
+  font-size: 23px;
+}
+
+.lang-toggle {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  background: #ffcc00;
+  color: #003b78;
+  font-weight: 800;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 9999;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+</style>
+</head>
+
+<body>
+
+<!-- Language Toggle -->
+<div class="lang-toggle" id="langToggle">עברית</div>
+
+<header>
+  <h1 data-en="Israel First" data-he="ישראל תחילה">Israel First</h1>
+  <p data-en="Because anything but Israel First is Israel Last."
+     data-he="כי כל דבר חוץ מישראל תחילה — הוא ישראל אחרונה.">
+     Because anything but Israel First is Israel Last.
+  </p>
+</header>
+
+<div class="section">
+  <h2 data-en="What’s Being Taken From Israel"
+      data-he="מה נלקח מישראל">
+      What’s Being Taken From Israel
+  </h2>
+
+  <div class="problem-block" data-en="Foreign governments now openly dictate Israel’s borders, military conduct, and political limits. Decisions that belong in Jerusalem are increasingly made elsewhere."
+       data-he="ממשלות זרות מכתיבות בגלוי את גבולות ישראל, פעולות צה״ל ומדיניות לאומית. החלטות שאמורות להתקבל בירושלים מתקבלות במקומות אחרים.">
+    Foreign governments now openly dictate Israel’s borders, military conduct, and political limits. Decisions that belong in Jerusalem are increasingly made elsewhere.
+  </div>
+
+  <div class="problem-block" data-en="Young Israelis are locked out of home ownership. Artificial land restrictions and failed planning policies drive prices beyond reach."
+       data-he="צעירים בישראל מודרים מבעלות על בית. מגבלות קרקע מלאכותיות ומדיניות כושלת דוחפות מחירים מעבר להישג יד.">
+    Young Israelis are locked out of home ownership. Artificial land restrictions and failed planning policies drive prices beyond reach.
+  </div>
+
+  <div class="problem-block" data-en="Mass foreign labor suppresses wages while Israelis struggle to find stable, well-paying work."
+       data-he="עבודה זרה בהיקף רחב מדכאת שכר בזמן שאזרחים ישראלים מתקשים למצוא תעסוקה יציבה ומכבדת.">
+    Mass foreign labor suppresses wages while Israelis struggle to find stable, well-paying work.
+  </div>
+
+  <div class="problem-block" data-en="Endless wars are prolonged by ceasefires, foreign pressure, and policies designed to manage conflict instead of ending it."
+       data-he="מלחמות אינסופיות נמשכות בשל הפסקות אש, לחץ זר ומדיניות שמנהלת סכסוך במקום להכריע אותו.">
+    Endless wars are prolonged by ceasefires, foreign pressure, and policies designed to manage conflict instead of ending it.
+  </div>
+</div>
+
+<div class="section">
+  <h2 data-en="Israel First Roadmap"
+      data-he="מפת הדרכים של ישראל תחילה">
+      Israel First Roadmap
+  </h2>
+
+  <div class="pillars">
+    <div class="pillar">
+      <h3>🛡️ <span data-en="Win Wars Decisively" data-he="ניצחון מוחלט במלחמות">Win Wars Decisively</span></h3>
+      <p data-en="No more ceasefires or prisoner swaps. The IDF fights to win — fully."
+         data-he="בלי הפסקות אש ובלי עסקאות שבויים. צה״ל נלחם כדי לנצח.">
+         No more ceasefires or prisoner swaps. The IDF fights to win — fully.
+      </p>
+    </div>
+
+    <div class="pillar">
+      <h3>🌍 <span data-en="End Foreign Interference" data-he="עצירת התערבות זרה">End Foreign Interference</span></h3>
+      <p data-en="Israeli policy will be decided by Israelis — not NGOs or foreign capitals."
+         data-he="מדיניות ישראל תיקבע על ידי ישראלים — לא על ידי ארגונים זרים או בירות זרות.">
+         Israeli policy will be decided by Israelis — not NGOs or foreign capitals.
+      </p>
+    </div>
+
+    <div class="pillar">
+      <h3>🏡 <span data-en="Unleash Home Ownership" data-he="שחרור בעלות על דיור">Unleash Home Ownership</span></h3>
+      <p data-en="Apply sovereignty and open land for real development and family homes."
+         data-he="החלת ריבונות ופתיחת קרקעות לפיתוח אמיתי ולבתים למשפחות.">
+         Apply sovereignty and open land for real development and family homes.
+      </p>
+    </div>
+
+    <div class="pillar">
+      <h3>💼 <span data-en="Raise Israeli Wages" data-he="העלאת שכר בישראל">Raise Israeli Wages</span></h3>
+      <p data-en="Reduce foreign labor and restore dignity to Israeli work."
+         data-he="צמצום עבודה זרה והשבת הכבוד לעבודה ישראלית.">
+         Reduce foreign labor and restore dignity to Israeli work.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- FOUNDER JOIN SECTION (UNCHANGED FUNCTIONALLY) -->
+<!-- paste your existing founder section here exactly as-is -->
+<!-- no logic removed -->
+
+<script>
+let currentLang = 'en';
+const toggle = document.getElementById('langToggle');
+
+toggle.addEventListener('click', () => {
+  currentLang = currentLang === 'en' ? 'he' : 'en';
+  toggle.textContent = currentLang === 'en' ? 'עברית' : 'EN';
+
+  document.querySelectorAll('[data-en]').forEach(el => {
+    el.textContent = el.dataset[currentLang];
+  });
+
+  document.body.dir = currentLang === 'he' ? 'rtl' : 'ltr';
+});
+</script>
+
+</body>
+</html>
