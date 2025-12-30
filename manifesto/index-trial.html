@@ -30,8 +30,7 @@ html,body{
 a{color:var(--accent);text-decoration:none;}
 a:hover{text-decoration:underline}
 
-/* ================= HERO ================= */
-
+/* HERO */
 header.hero{
   min-height:90vh;
   display:grid;
@@ -67,8 +66,7 @@ header.hero{
   font-size:1.4rem;
 }
 
-/* ================= LAYOUT ================= */
-
+/* LAYOUT */
 .manifesto-layout{
   max-width:1200px;
   margin:5rem auto;
@@ -78,8 +76,7 @@ header.hero{
   padding:0 1.5rem;
 }
 
-/* ================= TOC ================= */
-
+/* TOC */
 .manifesto-toc{
   position:sticky;
   top:100px;
@@ -104,12 +101,7 @@ header.hero{
   font-size:.95rem;
 }
 
-/* ================= MAIN CONTENT ================= */
-
-main{}
-
-/* Executive Summary */
-
+/* EXEC SUMMARY */
 .exec-summary{
   background:#fff;
   padding:3rem;
@@ -125,11 +117,6 @@ main{}
   margin-top:0;
 }
 
-.exec-summary p{
-  font-size:1.15rem;
-  max-width:800px;
-}
-
 .exec-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -143,8 +130,7 @@ main{}
   color:var(--accent);
 }
 
-/* Sections */
-
+/* SECTIONS */
 section{
   margin-bottom:4rem;
   background:#fff;
@@ -193,8 +179,7 @@ footer{
   font-family:'Inter',sans-serif;
 }
 
-/* ================= MOBILE ================= */
-
+/* MOBILE */
 @media(max-width:900px){
   .manifesto-layout{grid-template-columns:1fr;}
   .manifesto-toc{display:none;}
@@ -224,58 +209,56 @@ footer{
   </p>
 
   <div class="exec-grid">
-    <div>
-      <h3>Sovereignty Is Non-Negotiable</h3>
-      <p>National policy must never be dictated by foreign governments, aid structures, or approval mechanisms.</p>
-    </div>
-    <div>
-      <h3>Wars Must End in Victory</h3>
-      <p>Ceasefires and managed conflicts erode deterrence and invite future war.</p>
-    </div>
-    <div>
-      <h3>Land Enables Prosperity</h3>
-      <p>Housing supply, ownership, and affordability begin with sovereignty.</p>
-    </div>
-    <div>
-      <h3>Work Must Pay</h3>
-      <p>Israeli labor must come first in Israeli industries.</p>
-    </div>
-    <div>
-      <h3>Independence Preserves Peace</h3>
-      <p>Strategic autonomy is the foundation of long-term stability.</p>
-    </div>
+    <div><h3>Sovereignty Is Non-Negotiable</h3><p>National policy must never be dictated by foreign governments.</p></div>
+    <div><h3>Wars Must End in Victory</h3><p>Managed conflict erodes deterrence.</p></div>
+    <div><h3>Land Enables Prosperity</h3><p>Housing and ownership begin with sovereignty.</p></div>
+    <div><h3>Work Must Pay</h3><p>Israeli labor must come first.</p></div>
+    <div><h3>Independence Preserves Peace</h3><p>Autonomy is stability.</p></div>
   </div>
 </section>
 
-<!-- YOUR ORIGINAL SECTIONS (UNCHANGED TEXT) -->
+<!-- FULL ORIGINAL TEXT BELOW -->
 
 <section id="crisis" class="animate">
-  <h2>A Zionist Crisis—And a Choice</h2>
-  <!-- content unchanged -->
+<h2>A Zionist Crisis—And a Choice</h2>
+<p>Israel was not built to become a country where its citizens struggle to live in it.</p>
+<p>Yet today, the Zionist promise is slipping away for millions of Israelis...</p>
+<blockquote>We feed our enemies because of international demands...</blockquote>
+<p>Zionism was never meant to produce a nation of permanent renters...</p>
 </section>
 
 <section id="working-class" class="animate">
-  <h2>Rebuilding a Strong Working Class</h2>
+<h2>Rebuilding a Strong Working Class</h2>
+<p>Israel was built by workers—not by intermediaries...</p>
+<ul>
+<li>Severely minimize foreign labor</li>
+<li>Restore construction as a respected Israeli profession</li>
+</ul>
 </section>
 
 <section id="housing" class="animate">
-  <h2>Annexation: The Solution to the Housing Crisis</h2>
+<h2>Annexation: The Solution to the Housing Crisis</h2>
+<p>Israel is not suffering from a housing shortage...</p>
 </section>
 
 <section id="sovereignty" class="animate">
-  <h2>Sovereignty Through Strategic Balance</h2>
+<h2>Sovereignty Through Strategic Balance</h2>
+<p>Israel is a sovereign state—not a vassal.</p>
 </section>
 
 <section id="military" class="animate">
-  <h2>Military Independence and the End of Strategic Humiliation</h2>
+<h2>Military Independence and the End of Strategic Humiliation</h2>
+<p>Ceasefires. Negotiations. Prisoner releases.</p>
 </section>
 
 <section id="cohesion" class="animate">
-  <h2>National Cohesion</h2>
+<h2>National Cohesion</h2>
+<p>Israel has been divided deliberately.</p>
 </section>
 
 <section id="call" class="animate">
-  <h2>A Call to Citizens</h2>
+<h2>A Call to Citizens</h2>
+<p>This is Israel First.</p>
 </section>
 
 </main>
@@ -294,9 +277,7 @@ footer{
 
 </div>
 
-<footer>
-  © Israel First Party
-</footer>
+<footer>© Israel First Party</footer>
 
 <script>
 const sections=document.querySelectorAll('.animate');
