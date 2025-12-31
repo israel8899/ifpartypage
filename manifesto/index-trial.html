@@ -71,26 +71,50 @@ header.hero{
 }
 
 /* TOC */
-.manifesto-toc{
-  position:sticky;
-  top:100px;
-  background:var(--soft);
-  border-left:4px solid var(--accent);
-  padding:1.5rem;
-  font-family:'Inter',sans-serif;
+.manifesto-toc {
+  background: #fefcf7; /* light cream */
+  border-left: 4px solid #c7a14a; /* gold accent */
+  padding: 20px 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  max-width: 220px;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
 }
-.manifesto-toc h4{
-  margin:0 0 1rem;
-  font-size:.9rem;
-  text-transform:uppercase;
-  letter-spacing:.08em;
-  color:var(--accent);
+
+.manifesto-toc h4 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0b0b0b;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  padding-bottom: 4px;
 }
-.manifesto-toc a{
-  display:block;
-  margin-bottom:.6rem;
-  font-weight:600;
-  font-size:.95rem;
+
+.manifesto-toc ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.manifesto-toc li {
+  margin-bottom: 10px;
+}
+
+.manifesto-toc a {
+  display: block;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+  color: #1e6fff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.manifesto-toc a:hover {
+  background: #1e6fff;
+  color: #fff;
 }
 
 /* EXEC SUMMARY */
