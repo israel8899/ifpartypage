@@ -172,6 +172,10 @@ footer{
 
 <body>
 
+<div id="lang-toggle" style="position:fixed; top:16px; right:16px; z-index:1000; background:#003b78; color:#fff; padding:8px 14px; border-radius:8px; cursor:pointer; font-weight:600;">
+  EN / HE
+</div>
+
 <header class="hero">
   <div class="hero-content">
     <h1>Israel First</h1>
@@ -328,5 +332,25 @@ const observer = new IntersectionObserver((entries) => {
 sections.forEach(section => observer.observe(section));
 </script>
 
+<script>
+const toggle = document.getElementById('lang-toggle');
+let currentLang = 'EN'; // default
+
+toggle.addEventListener('click', () => {
+  if(currentLang === 'EN'){
+    currentLang = 'HE';
+    document.body.setAttribute('lang','he');
+    document.body.style.direction = 'rtl';
+    toggle.textContent = 'HE / EN';
+  } else {
+    currentLang = 'EN';
+    document.body.setAttribute('lang','en');
+    document.body.style.direction = 'ltr';
+    toggle.textContent = 'EN / HE';
+  }
+  // Note: You will need to provide Hebrew translations for all manifesto text
+});
+</script>
+  
 </body>
 </html>
