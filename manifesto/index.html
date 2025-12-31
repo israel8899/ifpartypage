@@ -4,135 +4,295 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Israel First Party Manifesto</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">  
+
 <style>
 :root{
   --ink:#0b0b0b;
   --paper:#f7f7f5;
-  --accent:#1e6fff;
+  --accent:#003b78;
   --gold:#c7a14a;
-  --highlight:#fff4c7;
+  --soft:#f4f6fa;
 }
 *{box-sizing:border-box}
-html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Merriweather', serif;font-size:1rem;line-height:1.75;scroll-behavior:smooth;}
-a{color:var(--accent);text-decoration:none;}
-a:hover{text-decoration:underline;}
+html,body{
+  margin:0;
+  padding:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Merriweather',serif;
+  line-height:1.75;
+  scroll-behavior:smooth;
+}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
 
-/* HERO - Header 1 */
+/* HERO */
 header.hero{
-  position: relative;
-  min-height: 90vh;
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-  
-  /* Flag background with subtle dark overlay */
+  min-height:90vh;
+  display:grid;
+  place-items:center;
   background:
-    linear-gradient(rgba(10,15,31,0.65), rgba(10,15,31,0.75)), /* darker overlay */
+    linear-gradient(rgba(10,15,31,.7),rgba(10,15,31,.8)),
     url("./israel-flag-header.png") center/cover no-repeat;
-
-  padding-bottom: 6rem;
 }
-
-header.hero .overlay{
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(0deg, rgba(255,255,255,.02) 0 1px, transparent 1px 4px);
-  mix-blend-mode: overlay;
-  opacity: .15;
-  pointer-events: none;
-}
-
-header.hero::after{
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 65%, rgba(0,0,0,.5) 100%);
-}
-
 .hero-content{
-  position: relative;
-  z-index: 1;
-  max-width: 980px;
-  padding: 6rem 2rem 7rem;
-  text-align: center;
+  text-align:center;
+  padding:6rem 2rem;
 }
-
 .hero-content h1{
-  margin: 0 0 1rem;
-  font-size: clamp(3rem,6vw,5.5rem);
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  color: #fff;
+  font-family:'Anton',sans-serif;
+  font-weight: 700;
+  font-size:clamp(3rem,6vw,5.5rem);
+  letter-spacing:.1em;
+  color:#fff;
+  margin:0;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.4); /* preserves depth/shadow */
+  text-transform:uppercase;
+}
+  /* Optional: keep hero subtitle styling */
+  header.hero .hero-content .hero-subtitle {
   font-family: 'Inter', sans-serif;
-  font-weight: 800; /* bolder */
-}
-
-.hero-content .divider{
-  width: 140px;
-  height: 2px;
-  margin: 1.5rem auto;
-  background: linear-gradient(90deg, transparent, #c7a14a, transparent);
-}
-
-.hero-content .hero-subtitle{
-  margin: 0;
-  font-size: clamp(1.25rem,2.2vw,1.75rem);
+  font-size: clamp(1.25rem, 2.2vw, 1.75rem);
   color: #ffffff;
-  letter-spacing: .04em;
+  letter-spacing: 0.04em;
   text-transform: none;
 }
-
-/* BODY - from HTML version 1 */
-main{max-width:960px;margin:6rem auto 6rem;padding:0 1.5rem;}
-section{margin:4rem 0;padding:2rem;background:#fff;border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.08);opacity:0;transform:translateY(20px);transition:opacity .8s ease-out, transform .8s ease-out;}
-section:nth-child(even){background:#fefcf7;}
-section.visible{opacity:1;transform:translateY(0);}
-section h2{
-  font-size:1.9rem;
-  letter-spacing:.06em;
-  text-transform:uppercase;
-  margin:0 0 1rem;
-  font-weight:700;
-  color:var(--ink);
-  position:relative;
-  cursor:default;
-  transition:color .3s;
+.hero-content .divider{
+  width:140px;
+  height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  margin:1.5rem auto;
 }
-section h2:hover{color:var(--accent);}
+.hero-content p{
+  color:#fff;
+  font-size:1.4rem;
+}
+
+/* LAYOUT */
+.manifesto-layout{
+  max-width:1200px;
+  margin:5rem auto;
+  display:grid;
+  grid-template-columns:1fr 260px;
+  gap:3rem;
+  padding:0 1.5rem;
+}
+
+/* TOC */
+.manifesto-toc {
+  position: sticky;
+  top: 100px;
+  background: #e8f0ff; /* light pastel blue */
+  border-left: 4px solid #1e6fff; /* matching deeper blue */
+  color: #0b0b0b;
+  padding: 20px 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  max-width: 220px;
+  max-height: calc(100vh - 140px); /* stops TOC from stretching too far */
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  overflow: hidden; /* hides extra space beyond last item */
+}
+
+.manifesto-toc h4 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0b0b0b;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  padding-bottom: 4px;
+}
+
+.manifesto-toc ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.manifesto-toc li {
+  margin-bottom: 10px;
+}
+
+.manifesto-toc a {
+  display: block;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+  color: #1e6fff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.manifesto-toc a:hover {
+  background: #1e6fff;
+  color: #fff;
+}
+
+/* EXEC SUMMARY */
+.exec-summary{
+  background:#fff;
+  padding:3rem;
+  border-radius:12px;
+  box-shadow:0 4px 16px rgba(0,0,0,.08);
+  margin-bottom:4rem;
+}
+.exec-summary h1{
+  font-family:'Inter',sans-serif;
+  color:var(--accent);
+  font-size:2.4rem;
+  margin-top:0;
+}
+.exec-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:2rem;
+  margin-top:2.5rem;
+}
+.exec-grid h3{
+  font-family:'Inter',sans-serif;
+  margin:.2rem 0;
+  color:var(--accent);
+}
+
+/* SECTIONS */
+section{
+  margin-bottom:4rem;
+  background:#fff;
+  padding:2.5rem;
+  border-radius:12px;
+  box-shadow:0 4px 16px rgba(0,0,0,.08);
+  opacity:0;
+  transform:translateY(20px);
+  transition:opacity .8s,transform .8s;
+}
+section.visible{opacity:1;transform:none}
+
+/* Section headers - responsive and readable */
+section h2 {
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  font-size: clamp(1.3rem, 2vw + 1rem, 1.7rem); /* scales for all screens */
+  margin-top: 0;
+  line-height: 1.2;
+  white-space: normal; /* allow wrapping instead of forcing single line */
+  word-wrap: break-word; /* ensures long words wrap safely */
+  overflow: visible; /* prevents hidden overflow and horizontal scroll */
+}
+  
 section h2::after{
-  content:"";display:block;width:80px;height:3px;margin-top:.5rem;
-  background:linear-gradient(90deg, var(--accent), transparent);
+  content:"";
+  display:block;
+  width:80px;
+  height:3px;
+  background:linear-gradient(90deg,var(--accent),transparent);
+  margin:.5rem 0 1.5rem;
 }
-section p{line-height:1.8;font-size:1.05rem;margin-bottom:1.25rem;}
-p.highlight{background:var(--highlight);padding:.75rem 1rem;border-left:4px solid var(--gold);border-radius:4px;font-style:italic;}
-blockquote{margin:1.5rem 0;padding:1rem 1.5rem;background:#fef4d6;border-left:6px solid var(--gold);font-style:italic;color:#333;}
-strong{font-weight:700;}
-ul{margin-left:1.5rem;margin-bottom:1.25rem;}
-footer{background:linear-gradient(135deg,#0e1633,#0b0b0b);color:#fff;text-align:center;padding:28px 16px;margin-top:48px;font-family:'Inter', sans-serif;font-size:0.95rem;}
+blockquote{
+  border-left:5px solid var(--gold);
+  padding:1rem 1.5rem;
+  background:#fdf8e7;
+  font-style:italic;
+}
 
-/* RESPONSIVE */
-@media(max-width:600px){
-  section{padding:1.5rem 1rem;}
-  .hero-content h1{font-size:clamp(2.5rem,8vw,4.5rem);}
-  .hero-content .hero-subtitle{font-size:clamp(1rem,4vw,1.5rem);}
+/* FOOTER */
+footer{
+  background:#0b0b0b;
+  color:#fff;
+  text-align:center;
+  padding:2rem;
+  font-family:'Inter',sans-serif;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+  .manifesto-layout{grid-template-columns:1fr}
+  .manifesto-toc{display:none}
 }
 </style>
 </head>
+
 <body>
 
+<div id="lang-toggle" style="position:fixed; top:16px; right:16px; z-index:1000; background:#003b78; color:#fff; padding:8px 14px; border-radius:8px; cursor:pointer; font-weight:600;">
+  EN / HE
+</div>
+
 <header class="hero">
-  <div class="overlay"></div>
   <div class="hero-content">
-    <h1>ISRAEL FIRST</h1>
+    <h1>Israel First</h1>
     <div class="divider"></div>
-    <p class="hero-subtitle">A Vision for a Country That Puts Its Citizens First</p>
+    <p>A Vision for a Country That Puts Its Citizens First</p>
   </div>
 </header>
 
+<div class="manifesto-layout">
+
 <main>
 
-<section class="animate">
+<section id="guiding-principles" class="exec-summary visible">
+  <h1>Guiding Principles</h1>
+  <p>
+    Israel First is a sovereignty-driven political movement founded on a simple principle:
+    the State of Israel must be governed exclusively in the interests of its citizens.
+  </p>
+
+ <style>
+.exec-box {
+  background: #fefcf7; /* light cream */
+  border-left: 4px solid #c7a14a; /* gold accent */
+  padding: 20px 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  margin-bottom: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.exec-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+.exec-box h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 1.25rem;
+}
+.exec-box p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+</style>
+
+<div class="exec-grid">
+  <div class="exec-box">
+    <h3>Sovereignty Is Non-Negotiable</h3>
+    <p>National policy must never be dictated by foreign governments.</p>
+  </div>
+  <div class="exec-box">
+    <h3>Wars Must End in Victory</h3>
+    <p>Managed conflict erodes deterrence and invites coercion.</p>
+  </div>
+  <div class="exec-box">
+    <h3>Land Enables Prosperity</h3>
+    <p>Housing affordability begins with sovereignty over land.</p>
+  </div>
+  <div class="exec-box">
+    <h3>Work Must Pay</h3>
+    <p>Israeli labor must come before imported labor schemes.</p>
+  </div>
+  <div class="exec-box">
+    <h3>Independence Preserves Peace</h3>
+    <p>Strategic autonomy is the foundation of long-term stability.</p>
+  </div>
+</div>
+   
+</section>
+<section id="zionist-crisis" class="animate">
   <h2>A Zionist Crisis—And a Choice</h2>
   <p>Israel was not built to become a country where its citizens struggle to live in it.</p>
   <p>Yet today, the Zionist promise is slipping away for millions of Israelis. Housing has become unaffordable. Wages are suppressed. The job market is distorted by mass foreign labor. And national decisions are increasingly shaped by foreign pressure rather than the will of the Israeli public.</p>
@@ -144,7 +304,7 @@ footer{background:linear-gradient(135deg,#0e1633,#0b0b0b);color:#fff;text-align:
   <p>Israel First exists to revive the Zionist dream—by restoring ownership, opportunity, sovereignty, and permanence to Israeli life.</p>
 </section>
 
-<section class="animate">
+<section id="labor" class="animate">
   <h2>Rebuilding a Strong Working Class</h2>
   <p>Israel was built by workers—not by intermediaries, rent-seekers, or imported labor schemes.</p>
   <p>A Zionist economy is one that produces, builds, and employs its own people. When a nation hollows out its working class, it hollows out its resilience.</p>
@@ -162,7 +322,7 @@ footer{background:linear-gradient(135deg,#0e1633,#0b0b0b);color:#fff;text-align:
   <p>This is not protectionism. It is national insurance.</p>
 </section>
 
-<section class="animate">
+<section id="housing" class="animate">
   <h2>Annexation: The Solution to the Housing Crisis</h2>
   <p>Israel is not suffering from a housing shortage. Israel is suffering from a sovereignty shortage.</p>
   <p>Homeownership is the most reliable path to generational wealth. It is how families build stability, security, and a permanent stake in the future. When citizens are locked out of ownership, they are forced into permanent rent, permanent dependency, and permanent insecurity.</p>
@@ -175,7 +335,7 @@ footer{background:linear-gradient(135deg,#0e1633,#0b0b0b);color:#fff;text-align:
   <p>This is not ideology. It is basic economics—and basic Zionism. Zionism is not a slogan. It is a home you own, on land that is yours—under a state that will not retreat.</p>
 </section>
 
-<section class="animate">
+<section id="sovereignty" class="animate">
   <h2>Sovereignty Through Strategic Balance</h2>
   <p>Israel is a sovereign state—not a vassal.</p>
   <p>Israel’s greatest strategic mistake has been believing it has no options. That no country besides the United States would value partnership with us. This illusion has allowed others to leverage Israel economically, diplomatically, and militarily—without consequence.</p>
@@ -184,7 +344,7 @@ footer{background:linear-gradient(135deg,#0e1633,#0b0b0b);color:#fff;text-align:
   <p>The Israeli public is the sovereign.<br>Not foreign governments.<br>Not foreign interests.</p>
 </section>
 
-<section class="animate">
+<section id="military" class="animate">
   <h2>Military Independence and the End of Strategic Humiliation</h2>
   <p>Ceasefires. Negotiations. Prisoner releases. Humanitarian aid to enemies.</p>
   <p>Despite possessing the strongest military in the region, Israel has allowed foreign nations to negotiate the terms of wars we have already won.</p>
@@ -198,7 +358,7 @@ footer{background:linear-gradient(135deg,#0e1633,#0b0b0b);color:#fff;text-align:
   <p>Never again will Israel win wars only to surrender sovereignty afterward.</p>
 </section>
 
-<section class="animate">
+<section id="cohesion" class="animate">
   <h2>National Cohesion</h2>
   <p>Israel has been divided deliberately. Secular versus religious. Ashkenazi versus Sephardi. Tel Aviv versus Judea and Samaria.</p>
   <p>These divisions serve politicians—not the nation.</p>
@@ -207,21 +367,33 @@ footer{background:linear-gradient(135deg,#0e1633,#0b0b0b);color:#fff;text-align:
   <p>National cohesion does not mean uniformity. It means shared destiny.</p>
 </section>
 
-<section class="animate">
+<section id="call-to-citizens" class="animate">
   <h2>A Call to Citizens</h2>
   <p>Israel First is not left or right. It is forward.</p>
   <p>It is about restoring ownership, opportunity, sovereignty, and permanence to Israeli life. When Israelis can afford homes, earn dignified wages, defend themselves without permission, and live without foreign coercion, Zionism is not just remembered—it is renewed.</p>
   <p>This is Israel First.</p>
 </section>
-
 </main>
+
+<aside class="manifesto-toc">
+  <h4>Table of Contents</h4>
+  <ul>
+    <li><a href="#labor" title="Rebuilding a Strong Working Class">Labor</a></li>
+    <li><a href="#housing" title="Annexation: The Solution to the Housing Crisis">Housing</a></li>
+    <li><a href="#sovereignty" title="Sovereignty Through Strategic Balance">Sovereignty</a></li>
+    <li><a href="#military" title="Military Independence and the End of Strategic Humiliation">Military Independence</a></li>
+    <li><a href="#cohesion" title="National Cohesion">National Cohesion</a></li>
+  </ul>
+</aside>
+
+</div> <!-- /.manifesto-layout -->
 
 <footer>
   &copy; Israel First Party
 </footer>
 
 <script>
-// Scroll animation
+// Scroll animation for sections
 const sections = document.querySelectorAll('.animate');
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -233,5 +405,25 @@ const observer = new IntersectionObserver((entries) => {
 sections.forEach(section => observer.observe(section));
 </script>
 
+<script>
+const toggle = document.getElementById('lang-toggle');
+let currentLang = 'EN'; // default
+
+toggle.addEventListener('click', () => {
+  if(currentLang === 'EN'){
+    currentLang = 'HE';
+    document.body.setAttribute('lang','he');
+    document.body.style.direction = 'rtl';
+    toggle.textContent = 'HE / EN';
+  } else {
+    currentLang = 'EN';
+    document.body.setAttribute('lang','en');
+    document.body.style.direction = 'ltr';
+    toggle.textContent = 'EN / HE';
+  }
+  // Note: You will need to provide Hebrew translations for all manifesto text
+});
+</script>
+  
 </body>
 </html>
