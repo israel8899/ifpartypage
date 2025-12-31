@@ -160,13 +160,18 @@ section{
   transition:opacity .8s,transform .8s;
 }
 section.visible{opacity:1;transform:none}
-section h2{
-  font-family:'Inter',sans-serif;
-  text-transform:uppercase;
-  letter-spacing:.06em;
-  font-size:1.7rem;
-  margin-top:0;
+section h2 {
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  font-size: clamp(1.5rem, 4vw, 1.7rem); /* auto-scale */
+  margin-top: 0;
+  line-height: 1.2;
+  white-space: nowrap;       /* keep header on one line */
+  overflow: hidden;
+  text-overflow: ellipsis;   /* optional: adds "…" if too long */
 }
+  
 section h2::after{
   content:"";
   display:block;
